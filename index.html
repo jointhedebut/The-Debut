@@ -1,1 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Debut — You belong here. (Version B)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --navy:        #FEFBD8;
+      --plum:        #F9C8D0;
+      --plum-light:  #FCDDE2;
+      --cream:       #FFFFFF;
+      --cream-light: #FEFBD8;
+      --text-dark:   #1A1410;
+      --text-muted:  #6B5D52;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+      --px: 40px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: #FEFBD8;
+      color: #1A1410;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    nav {
+      background: #F9C8D0;
+      padding: 18px var(--px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo .the  { font-size: 9px; letter-spacing: 0.28em; color: rgba(26,20,16,0.5); text-transform: uppercase; margin-bottom: 2px; padding-left: 2px; }
+    .nav-logo .debut{ font-family: var(--sans); font-size: 20px; font-weight: 500; color: #1A1410; letter-spacing: -0.01em; }
+
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-ig {
+      display: flex; align-items: center; gap: 7px;
+      color: rgba(26,20,16,0.6); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-ig:hover { color: rgba(26,20,16,0.9); }
+    .nav-ig-icon { flex-shrink: 0; }
+    .nav-ig-handle { font-size: 12px; font-weight: 400; letter-spacing: 0.05em; }
+    .nav-cta {
+      font-size: 13px; font-weight: 400; color: rgba(26,20,16,0.85);
+      text-decoration: none; letter-spacing: 0.04em;
+      border-bottom: 0.5px solid rgba(26,20,16,0.25); padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { color: rgba(26,20,16,1); border-color: rgba(26,20,16,0.5); }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      background: #FFFDF0;
+      padding: 80px var(--px) 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: grayscale(100%) brightness(0.75) contrast(1.2);
+      z-index: 0;
+      opacity: 0.28;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .hero-opening-quote {
+      font-family: var(--serif);
+      font-size: clamp(15px, 2vw, 18px);
+      font-style: italic; font-weight: 300;
+      color: #6B5D52;
+      line-height: 1.65; max-width: 500px;
+      margin-bottom: 36px;
+      padding-left: 16px;
+      border-left: 2px solid #F9C8D0;
+    }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.3em; color: #F9C8D0;
+      text-transform: uppercase; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 20px; height: 0.5px; background: #F9C8D0;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 78px);
+      font-weight: 400; color: #1A1410;
+      line-height: 1.06; letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .hero-headline em { font-style: italic; color: #F9C8D0; }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 17px); font-weight: 300;
+      color: #6B5D52; line-height: 1.8;
+      max-width: 500px; margin-bottom: 40px;
+    }
+    .hero-sub strong { color: #1A1410; font-weight: 500; }
+    .btn-primary {
+      display: inline-block; background: #4A2510; color: #FFFFFF;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+      text-decoration: none; text-transform: uppercase;
+      padding: 16px 36px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: rgba(74,37,16,0.80); transform: translateY(-1px); }
+
+    /* ─────────────────────────────────────────
+       PROOF STRIP
+    ───────────────────────────────────────── */
+    .proof-strip { background: var(--plum); padding: 13px var(--px); text-align: center; }
+    .proof-strip p {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #1A1410; opacity: 0.65;
+    }
+
+    /* ─────────────────────────────────────────
+       STEP-AND-REPEAT
+    ───────────────────────────────────────── */
+    .steprepeat-section { display: block; line-height: 0; background: var(--navy); }
+    .steprepeat-svg { display: block; width: 100%; height: auto; max-height: 540px; }
+
+    /* ─────────────────────────────────────────
+       SHARED SECTION LABEL
+    ───────────────────────────────────────── */
+    .section-label {
+      font-size: 10px; letter-spacing: 0.3em; color: #1A1410;
+      text-transform: uppercase; margin-bottom: 20px; display: block;
+    }
+
+    /* ─────────────────────────────────────────
+       DINNER / HOW IT STARTS
+    ───────────────────────────────────────── */
+    .dinner-section { background: #FEFBD8; padding: 80px var(--px); }
+    .dinner-inner { max-width: 760px; margin: 0 auto; }
+    .dinner-headline {
+      font-family: var(--serif); font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400; color: #1A1410; line-height: 1.1; margin-bottom: 20px;
+    }
+    .dinner-headline em { font-style: italic; color: #F9C8D0; }
+    .dinner-body {
+      font-size: 16px; font-weight: 300; color: var(--text-muted);
+      line-height: 1.85; max-width: 560px; margin-bottom: 36px;
+    }
+    .dinner-details {
+      display: flex; gap: 0; flex-wrap: wrap;
+      border-top: 0.5px solid rgba(26,20,16,0.08);
+    }
+    .dinner-detail {
+      flex: 1; min-width: 110px;
+      padding: 20px 20px 20px 0;
+      border-right: 0.5px solid rgba(26,20,16,0.05);
+    }
+    .dinner-detail:first-child { padding-left: 0; }
+    .dinner-detail:last-child  { border-right: none; padding-right: 0; padding-left: 20px; }
+    .d-num   { font-family: var(--serif); font-size: 28px; font-weight: 300; color: #F9C8D0; line-height: 1; margin-bottom: 4px; }
+    .d-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* ─────────────────────────────────────────
+       PILLARS
+    ───────────────────────────────────────── */
+    .pillars { background: #FFFFFF; padding: 80px var(--px); }
+    .pillars-inner { max-width: 960px; margin: 0 auto; }
+    .pillars h2 {
+      font-family: var(--serif); font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 400; color: #1A1410; margin-bottom: 36px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+    }
+    .pillar-card { background: #FFFFFF; padding: 28px 24px 32px; border-top: 2px solid rgba(26,20,16,0.12); }
+    .pillar-card.featured { border-top-color: #F9C8D0; background: #F9C8D0; }
+    .pillar-number { font-size: 10px; letter-spacing: 0.2em; color: var(--plum); margin-bottom: 12px; text-transform: uppercase; }
+    .pillar-card.featured .pillar-number { color: rgba(26,20,16,0.55); }
+    .pillar-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: #6B3A22; margin-bottom: 10px; line-height: 1.2; }
+    .pillar-card.featured .pillar-title { color: #6B3A22; font-weight: 600; }
+    .pillar-body { font-size: 14px; font-weight: 300; color: #6B5D52; line-height: 1.75; }
+    .pillar-card.featured .pillar-body { color: rgba(26,20,16,0.65); }
+
+    /* ─────────────────────────────────────────
+       NETWORK
+    ───────────────────────────────────────── */
+    .network-section { background: #FEFBD8; padding: 80px var(--px); }
+    .network-inner {
+      max-width: 760px; margin: 0 auto;
+      display: flex; gap: 56px; align-items: flex-start; flex-wrap: wrap;
+    }
+    .network-left { flex: 1; min-width: 240px; }
+    .network-section .section-label { color: #1A1410; }
+    .network-left h2 {
+      font-family: var(--serif); font-size: clamp(26px, 4vw, 40px);
+      font-weight: 400; color: #1A1410; line-height: 1.2;
+    }
+    .network-left h2 em { color: #F9C8D0; font-style: italic; }
+    .network-right { flex: 1; min-width: 220px; }
+    .network-right p {
+      font-size: 15px; font-weight: 300; color: #6B5D52;
+      line-height: 1.85; margin-bottom: 20px;
+    }
+    .network-right p:last-child { margin-bottom: 0; }
+
+    /* ─────────────────────────────────────────
+       PULL QUOTE
+    ───────────────────────────────────────── */
+    .pull-quote { background: var(--plum); padding: 72px var(--px); text-align: center; }
+    .pull-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(22px, 4vw, 42px);
+      font-weight: 400; font-style: italic; color: #1A1410;
+      line-height: 1.35; max-width: 660px; margin: 0 auto 20px;
+    }
+    .pull-quote blockquote em { color: rgba(26,20,16,0.45); font-style: normal; font-weight: 500; }
+    .pull-divider { width: 32px; height: 0.5px; background: rgba(26,20,16,0.2); margin: 0 auto; }
+
+
+    /* ─────────────────────────────────────────
+       ROLE SELECTOR
+    ───────────────────────────────────────── */
+    .role-selector {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-bottom: 24px;
+    }
+    .role-btn {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 16px 18px; background: #FFFFFF;
+      border: 1.5px solid rgba(26,20,16,0.12);
+      cursor: pointer; text-align: left;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .role-btn:hover { border-color: #F9C8D0; }
+    .role-btn.active { border-color: #F9C8D0; background: #FFF5F7; }
+    .role-icon { font-size: 11px; color: #F9C8D0; margin-bottom: 6px; display: block; }
+    .role-btn.active .role-icon { color: #4A2510; }
+    .role-label { font-family: var(--sans); font-size: 13px; font-weight: 500; color: #1A1410; display: block; margin-bottom: 3px; }
+    .role-sub { font-family: var(--sans); font-size: 11px; font-weight: 300; color: #6B5D52; display: block; line-height: 1.4; }
+    @media (max-width: 400px) { .role-selector { grid-template-columns: 1fr; } }
+
+    /* ─────────────────────────────────────────
+       FORM
+    ───────────────────────────────────────── */
+    .form-section { background: #FFFFFF; padding: 80px var(--px); }
+    .form-inner { max-width: 520px; margin: 0 auto; }
+    .form-inner .section-label { margin-bottom: 12px; }
+    .form-inner h2 {
+      font-family: var(--serif); font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 400; color: #1A1410; line-height: 1.1; margin-bottom: 12px;
+    }
+    .form-inner > p {
+      font-size: 15px; font-weight: 300; color: var(--text-muted);
+      line-height: 1.8; margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 12px;
+    }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .form-field label {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .form-field input,
+    .form-field select {
+      font-family: var(--sans); font-size: 16px; font-weight: 300;
+      color: #1A1410; background: #FFFFFF;
+      border: 0.5px solid rgba(26,20,16,0.12); padding: 14px 16px;
+      outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none; appearance: none; border-radius: 0;
+      /* Prevents iOS zoom on focus */
+      font-size: max(16px, 1em);
+    }
+    .form-field input:focus,
+    .form-field select:focus { border-color: var(--plum); }
+    .form-field input::placeholder { color: rgba(122,116,110,0.4); }
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A746E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center;
+      padding-right: 40px; color: rgba(122,116,110,0.55);
+    }
+    .form-field select.has-value { color: var(--text-dark); }
+    .btn-submit {
+      width: 100%; background: #4A2510; color: #FFFFFF;
+      font-family: var(--sans); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 18px; border: none; cursor: pointer; margin-top: 8px;
+      transition: background 0.2s, transform 0.15s;
+      /* Ensure tappable on mobile */
+      min-height: 52px;
+    }
+    .btn-submit:hover { background: rgba(74,37,16,0.80); }
+    .btn-submit:active { transform: scale(0.99); }
+    .form-note {
+      font-size: 12px; color: var(--text-muted);
+      text-align: center; margin-top: 14px; letter-spacing: 0.02em;
+    }
+    .form-confirmation { display: none; text-align: center; padding: 52px 0; }
+    .check-circle {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid #F9C8D0;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .form-confirmation h3 {
+      font-family: var(--serif); font-size: 34px; font-weight: 400;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .form-confirmation p { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      background: #FEFBD8; padding: 36px var(--px);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo { display: flex; flex-direction: column; line-height: 1; }
+    .footer-logo .the  { font-size: 8px; letter-spacing: 0.28em; color: rgba(245,245,240,0.35); text-transform: uppercase; margin-bottom: 2px; padding-left: 2px; }
+    .footer-logo .debut{ font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--plum-light); }
+    .footer-right { text-align: right; }
+    .footer-ig {
+      font-size: 12px; color: #6B5D52; text-decoration: none;
+      letter-spacing: 0.06em; display: block; margin-bottom: 5px; transition: color 0.2s;
+    }
+    .footer-ig:hover { color: #F9C8D0; }
+    .footer-copy { font-size: 11px; color: rgba(245,245,240,0.18); }
+
+    /* ─────────────────────────────────────────
+       MOBILE  ≤ 640px
+    ───────────────────────────────────────── */
+    @media (max-width: 640px) {
+      :root { --px: 20px; }
+
+      /* ── Nav ── */
+      nav { padding: 14px var(--px); }
+      .nav-ig-handle { display: none; }
+      .nav-cta { font-size: 12px; padding-bottom: 2px; }
+
+      /* ── Hero ── */
+      .hero { padding: 44px var(--px) 48px; }
+      .hero-opening-quote {
+        font-size: 15px; margin-bottom: 22px; max-width: 100%;
+        border-left-width: 2px; padding-left: 14px;
+      }
+      .hero-eyebrow { font-size: 10px; margin-bottom: 14px; gap: 8px; }
+      .hero-headline { font-size: clamp(36px, 11vw, 52px); margin-bottom: 18px; }
+      .hero-sub {
+        font-size: 15px; margin-bottom: 28px;
+        max-width: 100%; line-height: 1.7;
+      }
+      .btn-primary { padding: 15px 28px; font-size: 12px; width: 100%; text-align: center; display: block; }
+
+      /* ── Proof strip ── */
+      .proof-strip { padding: 10px var(--px); }
+      .proof-strip p { font-size: 9px; letter-spacing: 0.1em; line-height: 1.6; }
+
+      /* ── Dinner ── */
+      .dinner-section { padding: 52px var(--px); }
+      .dinner-inner { max-width: 100%; }
+      .dinner-body { font-size: 15px; max-width: 100%; }
+      .dinner-details { flex-direction: column; }
+      .dinner-detail {
+        border-right: none;
+        border-bottom: 0.5px solid rgba(26,20,16,0.08);
+        padding: 14px 0;
+        flex: unset;
+      }
+      .dinner-detail:last-child { border-bottom: none; }
+      .d-num { font-size: 24px; }
+
+      /* ── Pillars ── */
+      .pillars { padding: 52px var(--px); }
+      .pillars-grid { grid-template-columns: 1fr; gap: 3px; }
+      .pillars h2 { margin-bottom: 24px; font-size: clamp(24px, 7vw, 34px); }
+      .pillar-card { padding: 24px 20px 28px; }
+      .pillar-title { font-size: 19px; }
+
+      /* ── Network ── */
+      .network-section { padding: 52px var(--px); }
+      .network-inner { flex-direction: column; gap: 24px; }
+      .network-left { min-width: 100%; }
+      .network-right { min-width: 100%; }
+      .network-right p { font-size: 15px; }
+
+      /* ── Pull quote ── */
+      .pull-quote { padding: 52px var(--px); }
+      .pull-quote blockquote { font-size: clamp(20px, 6vw, 28px); }
+
+      /* ── Form ── */
+      .form-section { padding: 52px var(--px); }
+      .form-row { grid-template-columns: 1fr; gap: 0; margin-bottom: 0; }
+      .form-inner > p { margin-bottom: 24px; font-size: 15px; }
+      .form-inner h2 { font-size: clamp(28px, 8vw, 38px); }
+      .btn-submit { font-size: 13px; padding: 16px; }
+
+      /* ── Footer ── */
+      footer {
+        flex-direction: column; gap: 16px;
+        text-align: center; padding: 28px var(--px);
+      }
+      .footer-right { text-align: center; }
+      .footer-ig { margin-bottom: 4px; }
+    }
+
+    /* ─────────────────────────────────────────
+       SMALL TABLET  641px – 900px
+    ───────────────────────────────────────── */
+    @media (min-width: 641px) and (max-width: 900px) {
+      :root { --px: 28px; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .steprepeat-svg { max-height: 400px; }
+    }
+
+    /* ── MOBILE HERO IMAGE STRIP ── */
+    .hero-mobile-img { display: none; }
+    @media (max-width: 640px) {
+      /* Hide background photo inside hero on mobile */
+      .hero-bg { display: none; }
+      /* Show standalone image strip below hero */
+      .hero-mobile-img {
+        display: block;
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        object-position: center 25%;
+        filter: grayscale(100%) brightness(0.75) contrast(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <span class="the">The</span>
+      <span class="debut">DEBUT</span>
+    </div>
+    <div class="nav-right">
+      <a href="https://instagram.com/jointhedebut" target="_blank" class="nav-ig" aria-label="Follow on Instagram">
+        <svg class="nav-ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        <span class="nav-ig-handle">@jointhedebut</span>
+      </a>
+      <a href="#signup" class="nav-cta">Join the community</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img
+      id="hero-bg"
+      class="hero-bg"
+      src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1800&q=85&auto=format&fit=crop&crop=faces,center"
+      alt=""
+      aria-hidden="true"
+      onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1800&q=85&auto=format&fit=crop&crop=faces,center'"
+    />
+    <div class="hero-inner">
+      <div class="hero-opening-quote">"Most communities expire at graduation. The Debut is just getting started — a network that meets you where you are and stays with you long after you've figured it out."</div>
+      <div class="hero-eyebrow">Launching Summer 2026</div>
+      <h1 class="hero-headline">The table was<br><em>made for you.</em></h1>
+      <p class="hero-sub">
+        The Debut is a community for women that starts in college — though the bonds last forever.
+        <strong>If you are ready to join a room where you will make new friends, uplevel your skills, and meet female leaders across industries, this is the room for you.</strong>
+        Intimate dinners. Real skills. People who actually get it.
+      </p>
+      <a href="#signup" class="btn-primary">Join The Debut</a>
+    </div>
+  </section>
+
+  <!-- MOBILE IMAGE STRIP — shown only on mobile, hidden on desktop -->
+  <img
+    class="hero-mobile-img"
+    src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=900&q=85&auto=format&fit=crop&crop=faces,center"
+    alt="A group of women together"
+    aria-hidden="true"
+  />
+
+  <!-- PROOF STRIP -->
+  <div class="proof-strip">
+    <p>Dinners &nbsp;·&nbsp; Workshops &nbsp;·&nbsp; Speaker Evenings &nbsp;·&nbsp; Annual Gathering &nbsp;·&nbsp; A Network That Lasts</p>
+  </div>
+
+
+  <!-- DINNER -->
+  <section class="dinner-section">
+    <div class="dinner-inner">
+      <span class="section-label">How it starts</span>
+      <h2 class="dinner-headline">It begins around<br><em>a dinner table.</em></h2>
+      <p class="dinner-body">
+        The first Debut experience is a dinner. An intimate gathering with a theme that sets the conversation.
+        Sometimes a guest who has been where you're going —
+        a woman who will speak straight with you because she remembers exactly what this moment felt like.
+        This is where the community begins. Everything else grows from here.
+      </p>
+      <div class="dinner-details">
+        <div class="dinner-detail">
+          <div class="d-num">Intimate</div>
+          <div class="d-label">By design</div>
+        </div>
+        <div class="dinner-detail">
+          <div class="d-num">1</div>
+          <div class="d-label">Theme per dinner</div>
+        </div>
+        <div class="dinner-detail">
+          <div class="d-num">Real</div>
+          <div class="d-label">Conversations</div>
+        </div>
+        <div class="dinner-detail">
+          <div class="d-num">$0</div>
+          <div class="d-label">To attend</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="pillars-inner">
+      <h2>What you'll walk away with.</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card featured">
+          <div class="pillar-number">Community</div>
+          <div class="pillar-title">A circle that stays with you</div>
+          <p class="pillar-body">Not a sorority. Not a club. No interviews to join or dues. A new community of women who you can build friendships with that is open to any college aged woman and one that you keep well beyond graduation.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-number">Skills</div>
+          <div class="pillar-title">What they don't teach in class</div>
+          <p class="pillar-body">Personal brand, negotiation, owning a room, navigating the early years of a career on your own terms. Practical. Honest. Built for right now.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-number">Experiences</div>
+          <div class="pillar-title">Dinners. Events. What comes next.</div>
+          <p class="pillar-body">It starts at the dinner table and grows. Workshops, speaker evenings, larger gatherings. Built for women who want more than a résumé line.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-number">Identity</div>
+          <div class="pillar-title">Your voice, sharpened here</div>
+          <p class="pillar-body">You'll leave with a clearer sense of who you are and how you show up. Not a personal brand. Just you — more settled, more sure, more ready than when you walked in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORK -->
+  <section class="network-section">
+    <div class="network-inner">
+      <div class="network-left">
+        <span class="section-label">The network</span>
+        <h2>The Debut doesn't end<br><em>at graduation.</em></h2>
+      </div>
+      <div class="network-right">
+        <p>Every woman who comes through The Debut — every city, every year — becomes part of a network that compounds over time. It doesn't belong to a school. It belongs to the women in it.</p>
+        <p>She's a founder. She's an editor. She's the person who knows the person. And she remembers you — from before you fully knew yourself.</p>
+        <p>This is the long game. And it starts the moment you walk in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pull-quote">
+    <blockquote>
+      "The confidence men walk into every room with —<br>
+      <em>we're building it here, together.</em>"
+    </blockquote>
+    <div class="pull-divider"></div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="signup">
+    <div class="form-inner">
+      <span class="section-label">Join The Debut</span>
+      <h2>Be part of something<br>from the beginning.</h2>
+      <p>Launching Summer 2026, with full momentum into Fall. Whether you're a college woman ready to find your people — or a leader ready to give back — there's a seat at this table for you.</p>
+
+      <form id="debut-form">
+
+        <!-- ── ROLE SELECTOR ── -->
+        <div class="role-selector">
+          <button type="button" class="role-btn active" data-role="member">
+            <span class="role-icon">✦</span>
+            <span class="role-label">College Member</span>
+            <span class="role-sub">I'm a college woman ready to join</span>
+          </button>
+          <button type="button" class="role-btn" data-role="mentor">
+            <span class="role-icon">✦</span>
+            <span class="role-label">Speaker & Mentor</span>
+            <span class="role-sub">I'm a leader ready to give back</span>
+          </button>
+        </div>
+
+        <input type="hidden" id="role" name="role" value="member">
+
+        <!-- ── SHARED FIELDS ── -->
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="fname" placeholder="First name" required autocomplete="given-name">
+          </div>
+          <div class="form-field">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname" placeholder="Last name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email">
+        </div>
+        <div class="form-field">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="Your city" required autocomplete="address-level2">
+        </div>
+
+        <!-- ── MEMBER FIELDS ── -->
+        <div id="member-fields">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="school">School</label>
+              <input type="text" id="school" name="school" placeholder="University or college" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="major">Major</label>
+              <input type="text" id="major" name="major" placeholder="Your major" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="gradyear">Graduation year</label>
+            <select id="gradyear" name="gradyear">
+              <option value="" disabled selected>Class of…</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ── MENTOR FIELDS ── -->
+        <div id="mentor-fields" style="display:none;">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Where you work" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" placeholder="Your role" autocomplete="organization-title">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option value="" disabled selected>Select your industry</option>
+              <option>Technology</option>
+              <option>Media & Entertainment</option>
+              <option>Finance & Investing</option>
+              <option>Healthcare & Wellness</option>
+              <option>Consumer & Retail</option>
+              <option>Marketing & Advertising</option>
+              <option>Sports & Culture</option>
+              <option>Entrepreneurship</option>
+              <option>Law & Policy</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="linkedin">LinkedIn URL</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com/in/yourname" inputmode="url">
+          </div>
+          <div class="form-field">
+            <label for="giveback">What would you like to share with The Debut community?</label>
+            <input type="text" id="giveback" name="giveback" placeholder="In your own words…">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">I'm in →</button>
+        <p class="form-note">Free to join. No spam. Just The Debut, when it's ready for you.</p>
+      </form>
+
+      <div class="form-confirmation" id="confirmation">
+        <div class="check-circle">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10L8.5 14.5L16 6" stroke="#F9C8D0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 id="confirmation-title">You're in.</h3>
+        <p id="confirmation-body">Welcome to The Debut.<br>We launch this summer — we'll be in touch soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span class="the">The</span>
+      <span class="debut">DEBUT</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://instagram.com/jointhedebut" target="_blank" class="footer-ig">@jointhedebut</a>
+      <div class="footer-copy">© 2026 The Debut. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Role selector ──
+    const roleBtns    = document.querySelectorAll('.role-btn');
+    const roleInput   = document.getElementById('role');
+    const memberFields = document.getElementById('member-fields');
+    const mentorFields = document.getElementById('mentor-fields');
+    const confirmTitle = document.getElementById('confirmation-title');
+    const confirmBody  = document.getElementById('confirmation-body');
+
+    roleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        roleBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const role = this.dataset.role;
+        roleInput.value = role;
+        if (role === 'member') {
+          memberFields.style.display = 'block';
+          mentorFields.style.display = 'none';
+          // make member fields required, mentor fields not
+          document.getElementById('school').required = false;
+          document.getElementById('gradyear').required = false;
+          document.getElementById('linkedin').required = false;
+        } else {
+          memberFields.style.display = 'none';
+          mentorFields.style.display = 'block';
+          document.getElementById('school').required = false;
+          document.getElementById('gradyear').required = false;
+        }
+      });
+    });
+
+    // ── Populate graduation years dynamically ──
+    (function() {
+      const select = document.getElementById('gradyear');
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear; y <= currentYear + 10; y++) {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        select.appendChild(opt);
+      }
+      select.addEventListener('change', function() {
+        if (this.value) this.classList.add('has-value');
+      });
+      document.getElementById('industry').addEventListener('change', function() {
+        if (this.value) this.classList.add('has-value');
+      });
+    })();
+
+    // ── Form submit ──
+    const form         = document.getElementById('debut-form');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const role = roleInput.value;
+      if (role === 'mentor') {
+        confirmTitle.textContent = 'Welcome to The Debut.';
+        confirmBody.innerHTML = "Thank you for joining as a Speaker & Mentor.<br>We'll be in touch soon about how you can contribute.";
+      } else {
+        confirmTitle.textContent = "You're in.";
+        confirmBody.innerHTML = "Welcome to The Debut.<br>We launch this summer — we'll be in touch soon.";
+      }
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+      confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+
+</body>
+</html>
