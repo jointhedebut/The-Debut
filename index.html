@@ -3,465 +3,488 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Debut — You belong here. </title>
+  <title>The Debut — Become who you're meant to be.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:        #FEFBD8;
-      --plum:        #F9C8D0;
-      --plum-light:  #FCDDE2;
-      --cream:       #FFFFFF;
-      --cream-light: #FEFBD8;
-      --text-dark:   #1A1410;
-      --text-muted:  #6B5D52;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans:  'DM Sans', system-ui, sans-serif;
-      --px: 40px;
+      /* ── THE DEBUT COLOR PALETTE ── */
+      --debut-cream:  #F8F5F1;
+      --lavender-mist:#E8DDF2;
+      --soft-lilac:   #D6C1E8;
+      --debut-plum:   #8C6AAE;
+      --plum-deep:    #6E4F8E;   /* derived — readable plum on light */
+      --midnight-ink: #171717;
+      --warm-charcoal:#3B3B3B;
+      --rose-dust:    #E8D4D4;
+      --silver-stone: #BDB7B1;
+
+      --serif:  'Playfair Display', Georgia, serif;
+      --script: 'Pinyon Script', cursive;
+      --sans:   'DM Sans', system-ui, sans-serif;
+      --px: 48px;
     }
 
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
-      background: #FEFBD8;
-      color: #1A1410;
+      background: var(--debut-cream);
+      color: var(--midnight-ink);
       -webkit-font-smoothing: antialiased;
     }
+
+    /* ── Reusable sparkle ── */
+    .spark {
+      display: inline-block; vertical-align: middle;
+      width: 0.5em; height: 0.5em;
+      color: var(--debut-plum);
+    }
+    .spark svg { width: 100%; height: 100%; display: block; }
+
+    /* ─────────────────────────────────────────
+       LOGO LOCKUP  (nav)
+    ───────────────────────────────────────── */
+    .logo { position: relative; display: inline-block; line-height: 1; padding-top: 8px; text-decoration: none; }
+    .logo .the {
+      font-family: var(--script); font-size: 23px; color: var(--debut-plum);
+      position: absolute; top: -9px; left: 40px; transform: rotate(-4deg); z-index: 2;
+    }
+    .logo .debut {
+      font-family: var(--serif); font-weight: 600; font-size: 27px;
+      color: var(--midnight-ink); letter-spacing: -0.005em; padding-left: 0;
+    }
+    .logo .debut .spark { width: 12px; height: 12px; margin-left: 2px; color: var(--soft-lilac); }
 
     /* ─────────────────────────────────────────
        NAV
     ───────────────────────────────────────── */
     nav {
-      background: #F9C8D0;
-      padding: 18px var(--px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background: var(--debut-cream);
+      padding: 16px var(--px);
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(23,23,23,0.08);
     }
-    .nav-logo { display: flex; flex-direction: column; line-height: 1; }
-    .nav-logo .the  { font-size: 9px; letter-spacing: 0.28em; color: rgba(26,20,16,0.5); text-transform: uppercase; margin-bottom: 2px; padding-left: 2px; }
-    .nav-logo .debut{ font-family: var(--sans); font-size: 20px; font-weight: 500; color: #1A1410; letter-spacing: -0.01em; }
-
-    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-right { display: flex; align-items: center; gap: 26px; }
     .nav-ig {
       display: flex; align-items: center; gap: 7px;
-      color: rgba(26,20,16,0.6); text-decoration: none;
-      transition: color 0.2s;
+      color: var(--warm-charcoal); text-decoration: none; transition: color 0.2s;
     }
-    .nav-ig:hover { color: rgba(26,20,16,0.9); }
-    .nav-ig-icon { flex-shrink: 0; }
-    .nav-ig-handle { font-size: 12px; font-weight: 400; letter-spacing: 0.05em; }
+    .nav-ig:hover { color: var(--debut-plum); }
+    .nav-ig-handle { font-size: 12px; letter-spacing: 0.05em; }
     .nav-cta {
-      font-size: 13px; font-weight: 400; color: rgba(26,20,16,0.85);
-      text-decoration: none; letter-spacing: 0.04em;
-      border-bottom: 0.5px solid rgba(26,20,16,0.25); padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
+      font-size: 11px; font-weight: 600; color: var(--midnight-ink);
+      text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase;
+      background: var(--soft-lilac);
+      padding: 11px 22px; border-radius: 999px;
+      transition: background 0.2s, transform 0.15s;
       white-space: nowrap;
     }
-    .nav-cta:hover { color: rgba(26,20,16,1); border-color: rgba(26,20,16,0.5); }
+    .nav-cta:hover { background: var(--debut-plum); color: #fff; transform: translateY(-1px); }
 
     /* ─────────────────────────────────────────
-       HERO
+       HERO  — the giant wordmark
     ───────────────────────────────────────── */
     .hero {
-      background: #FFFDF0;
-      padding: 80px var(--px) 72px;
-      position: relative;
-      overflow: hidden;
+      background: var(--debut-cream);
+      padding: 76px var(--px) 84px;
+      text-align: center;
+      position: relative; overflow: hidden;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 40%;
-      filter: grayscale(100%) brightness(0.75) contrast(1.2);
-      z-index: 0;
-      opacity: 0.28;
+    .hero-spark-bg {
+      position: absolute; color: var(--soft-lilac); opacity: 0.55;
     }
-    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-spark-bg.s1 { width: 28px; height: 28px; top: 90px;  left: 12%; }
+    .hero-spark-bg.s2 { width: 18px; height: 18px; top: 210px; right: 14%; }
+    .hero-spark-bg.s3 { width: 40px; height: 40px; bottom: 120px; left: 8%; opacity: 0.4; }
 
-    .hero-opening-quote {
-      font-family: var(--serif);
-      font-size: clamp(15px, 2vw, 18px);
-      font-style: italic; font-weight: 300;
-      color: #6B5D52;
-      line-height: 1.65; max-width: 500px;
-      margin-bottom: 36px;
-      padding-left: 16px;
-      border-left: 2px solid #F9C8D0;
+    .hero-logo { position: relative; display: inline-block; margin-bottom: 8px; }
+    .hero-logo .the {
+      font-family: var(--script);
+      font-size: clamp(48px, 9vw, 104px);
+      color: var(--debut-plum);
+      position: absolute; top: -0.20em; left: 2.05em; z-index: 2;
+      transform: rotate(-5deg);
     }
-    .hero-eyebrow {
-      font-size: 11px; letter-spacing: 0.3em; color: #F9C8D0;
-      text-transform: uppercase; margin-bottom: 20px;
-      display: flex; align-items: center; gap: 12px;
+    .hero-logo .debut {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(82px, 18vw, 188px);
+      color: var(--midnight-ink); line-height: 0.9;
+      letter-spacing: -0.01em; display: inline-block; position: relative;
     }
-    .hero-eyebrow::before {
-      content: ''; display: block;
-      width: 20px; height: 0.5px; background: #F9C8D0;
+    .hero-logo .debut .spark {
+      position: absolute; right: -0.34em; top: 0.34em;
+      width: 0.16em; height: 0.16em; color: var(--soft-lilac);
     }
+    .hero-tagline {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin: 18px 0 40px;
+    }
+    .hero-tagline span.txt {
+      font-size: clamp(12px, 1.6vw, 15px); letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--debut-plum); font-weight: 500;
+    }
+    .hero-tagline .rule { width: clamp(24px, 5vw, 48px); height: 1px; background: var(--debut-plum); opacity: 0.6; }
+
     .hero-headline {
-      font-family: var(--serif);
-      font-size: clamp(42px, 7vw, 78px);
-      font-weight: 400; color: #1A1410;
-      line-height: 1.06; letter-spacing: -0.01em;
-      margin-bottom: 24px;
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(28px, 4.2vw, 46px);
+      color: var(--midnight-ink); line-height: 1.22;
+      max-width: 720px; margin: 0 auto 22px; letter-spacing: -0.005em;
     }
-    .hero-headline em { font-style: italic; color: #F9C8D0; }
+    .hero-headline em { font-style: italic; color: var(--debut-plum); }
     .hero-sub {
-      font-size: clamp(15px, 2vw, 17px); font-weight: 300;
-      color: #6B5D52; line-height: 1.8;
-      max-width: 500px; margin-bottom: 40px;
+      font-size: clamp(15px, 1.8vw, 18px); font-weight: 300;
+      color: var(--warm-charcoal); line-height: 1.7;
+      max-width: 440px; margin: 0 auto 36px;
     }
-    .hero-sub strong { color: #1A1410; font-weight: 500; }
+    .hero-sub strong { font-weight: 600; color: var(--midnight-ink); }
     .btn-primary {
-      display: inline-block; background: #4A2510; color: #FFFFFF;
-      font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+      display: inline-block; background: var(--debut-plum); color: #fff;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
       text-decoration: none; text-transform: uppercase;
-      padding: 16px 36px; border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      padding: 17px 40px; border: none; cursor: pointer; border-radius: 999px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 10px 28px rgba(140,106,174,0.32);
     }
-    .btn-primary:hover { background: rgba(74,37,16,0.80); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--plum-deep); transform: translateY(-2px); box-shadow: 0 16px 34px rgba(140,106,174,0.4); }
 
     /* ─────────────────────────────────────────
-       PROOF STRIP
+       CHAPTER BAND  (lavender mist)
     ───────────────────────────────────────── */
-    .proof-strip { background: var(--plum); padding: 13px var(--px); text-align: center; }
-    .proof-strip p {
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: #1A1410; opacity: 0.65;
+    .chapter { background: var(--lavender-mist); padding: 56px var(--px); text-align: center; }
+    .chapter h2 {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(22px, 3vw, 34px); color: var(--midnight-ink);
+      line-height: 1.18; max-width: 620px; margin: 0 auto 30px; letter-spacing: -0.01em;
     }
+    .chapter-chips {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 14px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .chapter-chip {
+      background: var(--debut-cream); color: var(--warm-charcoal);
+      font-size: 13px; letter-spacing: 0.04em; padding: 10px 20px;
+      border-radius: 999px; border: 1px solid rgba(140,106,174,0.25);
+      display: inline-flex; align-items: center; gap: 9px;
+    }
+    .chapter-chip .spark { width: 11px; height: 11px; color: var(--debut-plum); }
 
     /* ─────────────────────────────────────────
-       STEP-AND-REPEAT
+       NET WORTH BAND  (midnight ink + seal)
     ───────────────────────────────────────── */
-    .steprepeat-section { display: block; line-height: 0; background: var(--navy); }
-    .steprepeat-svg { display: block; width: 100%; height: auto; max-height: 540px; }
-
-    /* ─────────────────────────────────────────
-       SHARED SECTION LABEL
-    ───────────────────────────────────────── */
-    .section-label {
-      font-size: 10px; letter-spacing: 0.3em; color: #1A1410;
-      text-transform: uppercase; margin-bottom: 20px; display: block;
+    .networth { display: grid; grid-template-columns: 360px 1fr; align-items: stretch; }
+    .networth-seal {
+      background: var(--lavender-mist);
+      display: flex; align-items: center; justify-content: center;
+      padding: 64px 32px;
     }
-
-    /* ─────────────────────────────────────────
-       DINNER / HOW IT STARTS
-    ───────────────────────────────────────── */
-    .dinner-section { background: #FEFBD8; padding: 80px var(--px); }
-    .dinner-inner { max-width: 760px; margin: 0 auto; }
-    .dinner-headline {
-      font-family: var(--serif); font-size: clamp(32px, 5vw, 52px);
-      font-weight: 400; color: #1A1410; line-height: 1.1; margin-bottom: 20px;
+    .seal { width: 230px; height: 230px; }
+    .seal text { fill: var(--midnight-ink); }
+    .seal .ring-top   { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 4px; }
+    .seal .ring-bot   { font-family: var(--sans); font-size: 7.6px; font-weight: 500; letter-spacing: 1.3px; }
+    .seal .seal-d     { font-family: var(--serif); font-size: 78px; font-weight: 600; }
+    .networth-body {
+      background: var(--midnight-ink); color: var(--debut-cream);
+      padding: 72px var(--px); display: flex; flex-direction: column; justify-content: center;
     }
-    .dinner-headline em { font-style: italic; color: #F9C8D0; }
-    .dinner-body {
-      font-size: 16px; font-weight: 300; color: var(--text-muted);
-      line-height: 1.85; max-width: 560px; margin-bottom: 36px;
+    .networth-body h2 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(30px, 4.4vw, 52px); line-height: 1.1; margin-bottom: 22px; letter-spacing: -0.01em;
     }
-    .dinner-details {
-      display: flex; gap: 0; flex-wrap: wrap;
-      border-top: 0.5px solid rgba(26,20,16,0.08);
+    .networth-body h2 em { font-style: italic; color: var(--soft-lilac); }
+    .networth-body p {
+      font-size: clamp(15px, 1.9vw, 18px); font-weight: 300;
+      color: rgba(248,245,241,0.78); line-height: 1.75; max-width: 560px;
     }
-    .dinner-detail {
-      flex: 1; min-width: 110px;
-      padding: 20px 20px 20px 0;
-      border-right: 0.5px solid rgba(26,20,16,0.05);
-    }
-    .dinner-detail:first-child { padding-left: 0; }
-    .dinner-detail:last-child  { border-right: none; padding-right: 0; padding-left: 20px; }
-    .d-num   { font-family: var(--serif); font-size: 28px; font-weight: 300; color: #F9C8D0; line-height: 1; margin-bottom: 4px; }
-    .d-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .networth-body p em { font-style: italic; color: var(--soft-lilac); }
 
     /* ─────────────────────────────────────────
        PILLARS
     ───────────────────────────────────────── */
-    .pillars { background: #FFFFFF; padding: 80px var(--px); }
-    .pillars-inner { max-width: 960px; margin: 0 auto; }
+    .pillars { background: var(--debut-cream); padding: 80px var(--px) 84px; }
+    .pillars-inner { max-width: 1120px; margin: 0 auto; }
+    .pillars-eyebrow {
+      text-align: center; font-size: 11px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--debut-plum); font-weight: 600; margin-bottom: 12px;
+    }
     .pillars h2 {
-      font-family: var(--serif); font-size: clamp(26px, 3.5vw, 38px);
-      font-weight: 400; color: #1A1410; margin-bottom: 36px;
+      font-family: var(--serif); font-weight: 600; text-align: center;
+      font-size: clamp(26px, 3.6vw, 40px); color: var(--midnight-ink);
+      margin-bottom: 52px; letter-spacing: -0.01em;
     }
     .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2px;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
     }
-    .pillar-card { background: #FFFFFF; padding: 28px 24px 32px; border-top: 2px solid rgba(26,20,16,0.12); }
-    .pillar-card.featured { border-top-color: #F9C8D0; background: #F9C8D0; }
-    .pillar-number { font-size: 10px; letter-spacing: 0.2em; color: var(--plum); margin-bottom: 12px; text-transform: uppercase; }
-    .pillar-card.featured .pillar-number { color: rgba(26,20,16,0.55); }
-    .pillar-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: #6B3A22; margin-bottom: 10px; line-height: 1.2; }
-    .pillar-card.featured .pillar-title { color: #6B3A22; font-weight: 600; }
-    .pillar-body { font-size: 14px; font-weight: 300; color: #6B5D52; line-height: 1.75; }
-    .pillar-card.featured .pillar-body { color: rgba(26,20,16,0.65); }
+    .pillar {
+      padding: 0 22px; text-align: center;
+      border-left: 1px solid rgba(23,23,23,0.1);
+    }
+    .pillar:first-child { border-left: none; }
+    .pillar-icon {
+      width: 44px; height: 44px; margin: 0 auto 18px; color: var(--midnight-ink);
+    }
+    .pillar-icon svg { width: 100%; height: 100%; display: block; }
+    .pillar-title {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--midnight-ink); margin-bottom: 12px;
+    }
+    .pillar-body { font-size: 14px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.7; }
 
     /* ─────────────────────────────────────────
-       NETWORK
+       STEPPING BAND  (soft lilac)
     ───────────────────────────────────────── */
-    .network-section { background: #FEFBD8; padding: 80px var(--px); }
-    .network-inner {
-      max-width: 760px; margin: 0 auto;
-      display: flex; gap: 56px; align-items: flex-start; flex-wrap: wrap;
+    .stepping { background: var(--soft-lilac); padding: 84px var(--px); text-align: center; }
+    .stepping .eyebrow {
+      font-family: var(--serif); font-style: italic; font-weight: 400;
+      font-size: clamp(16px, 2vw, 20px); color: var(--plum-deep); margin-bottom: 16px;
     }
-    .network-left { flex: 1; min-width: 240px; }
-    .network-section .section-label { color: #1A1410; }
-    .network-left h2 {
-      font-family: var(--serif); font-size: clamp(26px, 4vw, 40px);
-      font-weight: 400; color: #1A1410; line-height: 1.2;
+    .stepping blockquote {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(30px, 5vw, 60px); color: var(--midnight-ink);
+      line-height: 1.08; max-width: 760px; margin: 0 auto; letter-spacing: -0.015em;
     }
-    .network-left h2 em { color: #F9C8D0; font-style: italic; }
-    .network-right { flex: 1; min-width: 220px; }
-    .network-right p {
-      font-size: 15px; font-weight: 300; color: #6B5D52;
-      line-height: 1.85; margin-bottom: 20px;
-    }
-    .network-right p:last-child { margin-bottom: 0; }
+    .stepping blockquote em { font-style: italic; color: #fff; }
 
     /* ─────────────────────────────────────────
-       PULL QUOTE
+       VALUES BAND  (rose dust)
     ───────────────────────────────────────── */
-    .pull-quote { background: var(--plum); padding: 72px var(--px); text-align: center; }
+    .values { background: var(--rose-dust); padding: 76px var(--px); }
+    .values-inner {
+      max-width: 880px; margin: 0 auto;
+      display: flex; gap: 56px; align-items: center; flex-wrap: wrap; justify-content: center;
+    }
+    .values-head { flex: 1; min-width: 260px; }
+    .values-head h2 {
+      font-family: var(--serif); font-weight: 500; font-style: italic;
+      font-size: clamp(34px, 5vw, 58px); color: var(--midnight-ink);
+      line-height: 1.04; letter-spacing: -0.01em;
+    }
+    .values-head h2 .underline { border-bottom: 2px solid var(--debut-plum); padding-bottom: 2px; }
+    .values-list { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 0; }
+    .value-item {
+      font-family: var(--serif); font-size: clamp(20px, 2.6vw, 26px);
+      font-weight: 500; color: var(--midnight-ink);
+      padding: 14px 0; border-bottom: 1px solid rgba(23,23,23,0.12);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .value-item:last-child { border-bottom: none; }
+    .value-item .spark { width: 14px; height: 14px; color: var(--debut-plum); }
+
+    /* ─────────────────────────────────────────
+       PULL QUOTE  (plum)
+    ───────────────────────────────────────── */
+    .pull-quote { background: var(--debut-plum); padding: 72px var(--px); text-align: center; }
     .pull-quote blockquote {
-      font-family: var(--serif);
-      font-size: clamp(22px, 4vw, 42px);
-      font-weight: 400; font-style: italic; color: #1A1410;
-      line-height: 1.35; max-width: 660px; margin: 0 auto 20px;
+      font-family: var(--serif); font-weight: 500; font-style: italic;
+      font-size: clamp(26px, 4.4vw, 48px); color: #fff;
+      line-height: 1.2; max-width: 720px; margin: 0 auto;
     }
-    .pull-quote blockquote em { color: rgba(26,20,16,0.45); font-style: normal; font-weight: 500; }
-    .pull-divider { width: 32px; height: 0.5px; background: rgba(26,20,16,0.2); margin: 0 auto; }
-
-
-    /* ─────────────────────────────────────────
-       ROLE SELECTOR
-    ───────────────────────────────────────── */
-    .role-selector {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 10px; margin-bottom: 24px;
-    }
-    .role-btn {
-      display: flex; flex-direction: column; align-items: flex-start;
-      padding: 16px 18px; background: #FFFFFF;
-      border: 1.5px solid rgba(26,20,16,0.12);
-      cursor: pointer; text-align: left;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .role-btn:hover { border-color: #F9C8D0; }
-    .role-btn.active { border-color: #F9C8D0; background: #FFF5F7; }
-    .role-icon { font-size: 11px; color: #F9C8D0; margin-bottom: 6px; display: block; }
-    .role-btn.active .role-icon { color: #4A2510; }
-    .role-label { font-family: var(--sans); font-size: 13px; font-weight: 500; color: #1A1410; display: block; margin-bottom: 3px; }
-    .role-sub { font-family: var(--sans); font-size: 11px; font-weight: 300; color: #6B5D52; display: block; line-height: 1.4; }
-    @media (max-width: 400px) { .role-selector { grid-template-columns: 1fr; } }
+    .pull-quote .pq-sub { color: rgba(255,255,255,0.7); }
 
     /* ─────────────────────────────────────────
        FORM
     ───────────────────────────────────────── */
-    .form-section { background: #FFFFFF; padding: 80px var(--px); }
-    .form-inner { max-width: 520px; margin: 0 auto; }
-    .form-inner .section-label { margin-bottom: 12px; }
+    .form-section { background: var(--debut-cream); padding: 84px var(--px); }
+    .form-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+    .form-eyebrow {
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--debut-plum); font-weight: 600; margin-bottom: 14px;
+    }
     .form-inner h2 {
-      font-family: var(--serif); font-size: clamp(32px, 4.5vw, 48px);
-      font-weight: 400; color: #1A1410; line-height: 1.1; margin-bottom: 12px;
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(32px, 4.5vw, 50px); color: var(--midnight-ink);
+      line-height: 1.06; margin-bottom: 14px; letter-spacing: -0.01em;
     }
     .form-inner > p {
-      font-size: 15px; font-weight: 300; color: var(--text-muted);
-      line-height: 1.8; margin-bottom: 32px;
+      font-size: 15px; font-weight: 300; color: var(--warm-charcoal);
+      line-height: 1.7; margin-bottom: 36px; max-width: 460px; margin-left: auto; margin-right: auto;
     }
-    .form-row {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 12px; margin-bottom: 12px;
+    #debut-form { text-align: left; }
+    .role-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+    .role-btn {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 16px 18px; background: #fff;
+      border: 1.5px solid rgba(140,106,174,0.25);
+      cursor: pointer; text-align: left; border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
     }
+    .role-btn:hover { border-color: var(--debut-plum); }
+    .role-btn.active { border-color: var(--debut-plum); background: var(--lavender-mist); }
+    .role-icon { width: 14px; height: 14px; color: var(--debut-plum); margin-bottom: 8px; }
+    .role-icon svg { width: 100%; height: 100%; display: block; }
+    .role-label { font-size: 13px; font-weight: 600; color: var(--midnight-ink); display: block; margin-bottom: 3px; }
+    .role-sub { font-size: 11px; font-weight: 300; color: var(--warm-charcoal); display: block; line-height: 1.4; }
+    @media (max-width: 400px) { .role-selector { grid-template-columns: 1fr; } }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
     .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-    .form-field label {
-      font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--text-muted);
-    }
-    .form-field input,
-    .form-field select {
+    .form-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-charcoal); }
+    .form-field input, .form-field select {
       font-family: var(--sans); font-size: 16px; font-weight: 300;
-      color: #1A1410; background: #FFFFFF;
-      border: 0.5px solid rgba(26,20,16,0.12); padding: 14px 16px;
-      outline: none; transition: border-color 0.2s;
-      -webkit-appearance: none; appearance: none; border-radius: 0;
-      /* Prevents iOS zoom on focus */
+      color: var(--midnight-ink); background: #fff;
+      border: 1px solid rgba(140,106,174,0.25); padding: 14px 16px;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none; appearance: none; border-radius: 10px;
       font-size: max(16px, 1em);
     }
-    .form-field input:focus,
-    .form-field select:focus { border-color: var(--plum); }
-    .form-field input::placeholder { color: rgba(122,116,110,0.4); }
+    .form-field input:focus, .form-field select:focus { border-color: var(--debut-plum); box-shadow: 0 0 0 3px rgba(140,106,174,0.14); }
+    .form-field input::placeholder { color: rgba(59,59,59,0.4); }
     .form-field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A746E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C6AAE' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 16px center;
-      padding-right: 40px; color: rgba(122,116,110,0.55);
+      padding-right: 40px; color: rgba(59,59,59,0.55);
     }
-    .form-field select.has-value { color: var(--text-dark); }
+    .form-field select.has-value { color: var(--midnight-ink); }
     .btn-submit {
-      width: 100%; background: #4A2510; color: #FFFFFF;
-      font-family: var(--sans); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 18px; border: none; cursor: pointer; margin-top: 8px;
+      width: 100%; background: var(--debut-plum); color: #fff;
+      font-family: var(--sans); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 18px; border: none; cursor: pointer; margin-top: 8px; border-radius: 999px;
       transition: background 0.2s, transform 0.15s;
-      /* Ensure tappable on mobile */
-      min-height: 52px;
+      min-height: 54px; box-shadow: 0 10px 28px rgba(140,106,174,0.3);
     }
-    .btn-submit:hover { background: rgba(74,37,16,0.80); }
+    .btn-submit:hover { background: var(--plum-deep); }
     .btn-submit:active { transform: scale(0.99); }
-    .form-note {
-      font-size: 12px; color: var(--text-muted);
-      text-align: center; margin-top: 14px; letter-spacing: 0.02em;
+    .form-note { font-size: 12px; color: var(--warm-charcoal); text-align: center; margin-top: 14px; }
+    .optin {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin: 4px 0 18px; cursor: pointer;
     }
+    .optin input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .optin-box {
+      flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px;
+      border: 1.5px solid rgba(140,106,174,0.45); border-radius: 6px;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .optin-box svg { width: 14px; height: 14px; opacity: 0; transition: opacity 0.15s; }
+    .optin input:checked + .optin-box { background: var(--debut-plum); border-color: var(--debut-plum); }
+    .optin input:checked + .optin-box svg { opacity: 1; }
+    .optin input:focus-visible + .optin-box { box-shadow: 0 0 0 3px rgba(140,106,174,0.25); }
+    .optin-text { font-size: 12.5px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.55; }
+    .optin-text a { color: var(--debut-plum); text-decoration: underline; text-underline-offset: 2px; }
     .form-confirmation { display: none; text-align: center; padding: 52px 0; }
     .check-circle {
-      width: 48px; height: 48px; border-radius: 50%;
-      border: 1px solid #F9C8D0;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
+      width: 56px; height: 56px; border-radius: 50%; background: var(--lavender-mist);
+      border: 1.5px solid var(--debut-plum);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
     }
-    .form-confirmation h3 {
-      font-family: var(--serif); font-size: 34px; font-weight: 400;
-      color: var(--navy); margin-bottom: 10px;
-    }
-    .form-confirmation p { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
+    .form-confirmation h3 { font-family: var(--serif); font-weight: 600; font-size: 36px; color: var(--midnight-ink); margin-bottom: 10px; }
+    .form-confirmation p { font-size: 15px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.7; }
 
     /* ─────────────────────────────────────────
        FOOTER
     ───────────────────────────────────────── */
     footer {
-      background: #FEFBD8; padding: 36px var(--px);
-      display: flex; align-items: center; justify-content: space-between;
+      background: var(--midnight-ink); color: var(--debut-cream);
+      padding: 64px var(--px) 32px;
     }
-    .footer-logo { display: flex; flex-direction: column; line-height: 1; }
-    .footer-logo .the  { font-size: 8px; letter-spacing: 0.28em; color: rgba(245,245,240,0.35); text-transform: uppercase; margin-bottom: 2px; padding-left: 2px; }
-    .footer-logo .debut{ font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--plum-light); }
-    .footer-right { text-align: right; }
-    .footer-ig {
-      font-size: 12px; color: #6B5D52; text-decoration: none;
-      letter-spacing: 0.06em; display: block; margin-bottom: 5px; transition: color 0.2s;
+    .footer-inner { max-width: 1120px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px;
+      padding-bottom: 44px; border-bottom: 1px solid rgba(248,245,241,0.14);
     }
-    .footer-ig:hover { color: #F9C8D0; }
-    .footer-copy { font-size: 11px; color: rgba(245,245,240,0.18); }
+    footer .logo { margin-bottom: 18px; }
+    footer .logo .the, footer .logo .debut { color: var(--debut-cream); }
+    footer .logo .the { color: var(--soft-lilac); }
+    footer .logo .debut .spark { color: var(--soft-lilac); }
+    .footer-brand p { font-size: 14px; font-weight: 300; color: rgba(248,245,241,0.6); line-height: 1.7; max-width: 300px; margin-bottom: 22px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(248,245,241,0.22); color: var(--debut-cream);
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .footer-social a:hover { background: var(--soft-lilac); color: var(--midnight-ink); border-color: var(--soft-lilac); }
+    .footer-col h4 {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--soft-lilac); margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 11px; }
+    .footer-col a {
+      font-size: 14px; font-weight: 300; color: rgba(248,245,241,0.72);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+      padding-top: 26px;
+    }
+    .footer-copy { font-size: 12px; color: rgba(248,245,241,0.4); }
+    .footer-legal { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 12px; color: rgba(248,245,241,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: #fff; }
 
     /* ─────────────────────────────────────────
-       MOBILE  ≤ 640px
+       RESPONSIVE
     ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      :root { --px: 32px; }
+      .networth { grid-template-columns: 1fr; }
+      .networth-seal { padding: 48px 32px; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 36px 0; }
+      .pillar { border-left: none; }
+      .pillar:nth-child(odd) { border-right: 1px solid rgba(23,23,23,0.1); }
+      .pillar:nth-child(5) { grid-column: 1 / -1; border-right: none; max-width: 340px; margin: 0 auto; }
+    }
     @media (max-width: 640px) {
       :root { --px: 20px; }
-
-      /* ── Nav ── */
       nav { padding: 14px var(--px); }
       .nav-ig-handle { display: none; }
-      .nav-cta { font-size: 12px; padding-bottom: 2px; }
-
-      /* ── Hero ── */
-      .hero { padding: 44px var(--px) 48px; }
-      .hero-opening-quote {
-        font-size: 15px; margin-bottom: 22px; max-width: 100%;
-        border-left-width: 2px; padding-left: 14px;
-      }
-      .hero-eyebrow { font-size: 10px; margin-bottom: 14px; gap: 8px; }
-      .hero-headline { font-size: clamp(36px, 11vw, 52px); margin-bottom: 18px; }
-      .hero-sub {
-        font-size: 15px; margin-bottom: 28px;
-        max-width: 100%; line-height: 1.7;
-      }
-      .btn-primary { padding: 15px 28px; font-size: 12px; width: 100%; text-align: center; display: block; }
-
-      /* ── Proof strip ── */
-      .proof-strip { padding: 10px var(--px); }
-      .proof-strip p { font-size: 9px; letter-spacing: 0.1em; line-height: 1.6; }
-
-      /* ── Dinner ── */
-      .dinner-section { padding: 52px var(--px); }
-      .dinner-inner { max-width: 100%; }
-      .dinner-body { font-size: 15px; max-width: 100%; }
-      .dinner-details { flex-direction: column; }
-      .dinner-detail {
-        border-right: none;
-        border-bottom: 0.5px solid rgba(26,20,16,0.08);
-        padding: 14px 0;
-        flex: unset;
-      }
-      .dinner-detail:last-child { border-bottom: none; }
-      .d-num { font-size: 24px; }
-
-      /* ── Pillars ── */
-      .pillars { padding: 52px var(--px); }
-      .pillars-grid { grid-template-columns: 1fr; gap: 3px; }
-      .pillars h2 { margin-bottom: 24px; font-size: clamp(24px, 7vw, 34px); }
-      .pillar-card { padding: 24px 20px 28px; }
-      .pillar-title { font-size: 19px; }
-
-      /* ── Network ── */
-      .network-section { padding: 52px var(--px); }
-      .network-inner { flex-direction: column; gap: 24px; }
-      .network-left { min-width: 100%; }
-      .network-right { min-width: 100%; }
-      .network-right p { font-size: 15px; }
-
-      /* ── Pull quote ── */
-      .pull-quote { padding: 52px var(--px); }
-      .pull-quote blockquote { font-size: clamp(20px, 6vw, 28px); }
-
-      /* ── Form ── */
-      .form-section { padding: 52px var(--px); }
+      .logo .the { font-size: 20px; top: -7px; left: 34px; }
+      .logo .debut { font-size: 23px; padding-left: 0; }
+      .hero { padding: 48px var(--px) 60px; }
+      .hero-logo .the { font-size: clamp(44px, 13vw, 64px); }
+      .hero-logo .debut { font-size: clamp(64px, 24vw, 110px); }
+      .hero-tagline { gap: 10px; margin: 12px 0 30px; }
+      .hero-headline { font-size: clamp(24px, 6.4vw, 34px); }
+      .hero-sub { font-size: 15px; margin-bottom: 30px; }
+      .btn-primary { width: 100%; text-align: center; }
+      .chapter { padding: 48px var(--px); }
+      .networth-body { padding: 52px var(--px); }
+      .seal { width: 200px; height: 200px; }
+      .pillars { padding: 56px var(--px); }
+      .pillars h2 { margin-bottom: 36px; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 32px; }
+      .pillar, .pillar:nth-child(odd) { border: none; padding: 0; }
+      .pillar:nth-child(5) { max-width: none; }
+      .stepping { padding: 60px var(--px); }
+      .values { padding: 56px var(--px); }
+      .values-inner { flex-direction: column; gap: 28px; align-items: flex-start; }
+      .pull-quote { padding: 56px var(--px); }
+      .form-section { padding: 56px var(--px); }
       .form-row { grid-template-columns: 1fr; gap: 0; margin-bottom: 0; }
-      .form-inner > p { margin-bottom: 24px; font-size: 15px; }
-      .form-inner h2 { font-size: clamp(28px, 8vw, 38px); }
-      .btn-submit { font-size: 13px; padding: 16px; }
-
-      /* ── Footer ── */
-      footer {
-        flex-direction: column; gap: 16px;
-        text-align: center; padding: 28px var(--px);
-      }
-      .footer-right { text-align: center; }
-      .footer-ig { margin-bottom: 4px; }
-    }
-
-    /* ─────────────────────────────────────────
-       SMALL TABLET  641px – 900px
-    ───────────────────────────────────────── */
-    @media (min-width: 641px) and (max-width: 900px) {
-      :root { --px: 28px; }
-      .pillars-grid { grid-template-columns: 1fr 1fr; }
-      .steprepeat-svg { max-height: 400px; }
-    }
-
-    /* ── MOBILE HERO IMAGE STRIP ── */
-    .hero-mobile-img { display: none; }
-    @media (max-width: 640px) {
-      /* Hide background photo inside hero on mobile */
-      .hero-bg { display: none; }
-      /* Show standalone image strip below hero */
-      .hero-mobile-img {
-        display: block;
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-        object-position: center 25%;
-        filter: grayscale(100%) brightness(0.75) contrast(1.2);
-      }
+      footer { padding: 48px var(--px) 28px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   </style>
 </head>
 <body>
 
+  <template id="__bundler_thumbnail" data-bg-color="#F8F5F1">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#F8F5F1"/>
+      <text x="600" y="470" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="600" font-size="320" fill="#171717">D.</text>
+      <path transform="translate(742,300) scale(7)" d="M9 0 L10.3 7.7 L18 9 L10.3 10.3 L9 18 L7.7 10.3 L0 9 L7.7 7.7 Z" fill="#D6C1E8"/>
+    </svg>
+  </template>
+
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">
+    <a href="#top" class="logo" aria-label="The Debut">
       <span class="the">The</span>
-      <span class="debut">DEBUT</span>
-    </div>
+      <span class="debut">Debut<span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span></span>
+    </a>
     <div class="nav-right">
       <a href="https://instagram.com/jointhedebut" target="_blank" class="nav-ig" aria-label="Follow on Instagram">
-        <svg class="nav-ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5"/>
           <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
           <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
@@ -473,145 +496,169 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <img
-      id="hero-bg"
-      class="hero-bg"
-      src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1800&q=85&auto=format&fit=crop&crop=faces,center"
-      alt=""
-      aria-hidden="true"
-      onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1800&q=85&auto=format&fit=crop&crop=faces,center'"
-    />
-    <div class="hero-inner">
-      <div class="hero-opening-quote">"Most communities expire at graduation. The Debut is just getting started — a network that meets you where you are and stays with you long after you've figured it out."</div>
-      <div class="hero-eyebrow">Launching Summer 2026</div>
-      <h1 class="hero-headline">The table was<br><em>made for you.</em></h1>
-      <p class="hero-sub">
-        The Debut is a community for women that starts in college — though the bonds last forever.
-        <strong>If you are ready to join a room where you will make new friends, uplevel your skills, and meet female leaders across industries, this is the room for you.</strong>
-        Intimate dinners. Real skills. People who actually get it.
-      </p>
-      <a href="#signup" class="btn-primary">Join The Debut</a>
+  <section class="hero" id="top" style="text-align: center">
+    <span class="spark hero-spark-bg s1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+    <span class="spark hero-spark-bg s2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+    <span class="spark hero-spark-bg s3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+
+    <div class="hero-logo">
+      <span class="the" style="line-height: 0.93">The</span>
+      <span class="debut">Debut<span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span></span>
+    </div>
+
+    <div class="hero-tagline">
+      <span class="rule"></span>
+      <span class="txt">Learn. Connect. Launch.</span>
+      <span class="rule"></span>
+    </div>
+
+    <h1 class="hero-headline">The community where ambitious women <em>become</em> who they're meant to be.</h1>
+    <p class="hero-sub" style="font-weight: 400; color: rgb(46, 30, 22)">                   No interviews. No applications.                         There's a seat at this table for you.</p>
+    <a href="#signup" class="btn-primary">Join The Debut</a>
+  </section>
+
+  <!-- CHAPTER BAND -->
+  <section class="chapter">
+    <h2>A community built for every chapter of becoming.</h2>
+    <div class="chapter-chips">
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Real connections</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Relevant skills</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Meaningful mentorship</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Confidence that lasts</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Impact that matters</span>
     </div>
   </section>
 
-  <!-- MOBILE IMAGE STRIP — shown only on mobile, hidden on desktop -->
-  <img
-    class="hero-mobile-img"
-    src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=900&q=85&auto=format&fit=crop&crop=faces,center"
-    alt="A group of women together"
-    aria-hidden="true"
-  />
-
-  <!-- PROOF STRIP -->
-  <div class="proof-strip">
-    <p>Dinners &nbsp;·&nbsp; Workshops &nbsp;·&nbsp; Speaker Evenings &nbsp;·&nbsp; Annual Gathering &nbsp;·&nbsp; A Network That Lasts</p>
-  </div>
-
-
-  <!-- DINNER -->
-  <section class="dinner-section">
-    <div class="dinner-inner">
-      <span class="section-label">How it starts</span>
-      <h2 class="dinner-headline">It begins around<br><em>a dinner table.</em></h2>
-      <p class="dinner-body">
-        The first Debut experience is a dinner. An intimate gathering with a theme that sets the conversation.
-        Sometimes a guest who has been where you're going —
-        a woman who will speak straight with you because she remembers exactly what this moment felt like.
-        This is where the community begins. Everything else grows from here.
-      </p>
-      <div class="dinner-details">
-        <div class="dinner-detail">
-          <div class="d-num">Intimate</div>
-          <div class="d-label">By design</div>
-        </div>
-        <div class="dinner-detail">
-          <div class="d-num">1</div>
-          <div class="d-label">Theme per dinner</div>
-        </div>
-        <div class="dinner-detail">
-          <div class="d-num">Real</div>
-          <div class="d-label">Conversations</div>
-        </div>
-        <div class="dinner-detail">
-          <div class="d-num">$0</div>
-          <div class="d-label">To attend</div>
-        </div>
-      </div>
+  <!-- NET WORTH BAND -->
+  <section class="networth">
+    <div class="networth-seal">
+      <svg class="seal" viewBox="0 0 230 230" role="img" aria-label="The Debut — Your network. Your people. Your future.">
+        <defs>
+          <path id="ringTop" d="M 115,115 m -86,0 a 86,86 0 1,1 172,0" />
+          <path id="ringBot" d="M 33,115 a 82,82 0 0,0 164,0" />
+        </defs>
+        <text class="ring-top"><textPath href="#ringTop" startOffset="50%" text-anchor="middle">THE DEBUT</textPath></text>
+        <text class="ring-bot"><textPath href="#ringBot" startOffset="50%" text-anchor="middle">YOUR NETWORK · YOUR PEOPLE · YOUR FUTURE</textPath></text>
+        <text class="seal-d" x="100" y="142" text-anchor="middle">D.</text>
+        <g transform="translate(143,96)" fill="#8C6AAE">
+          <path d="M9 0 L10.3 7.7 L18 9 L10.3 10.3 L9 18 L7.7 10.3 L0 9 L7.7 7.7 Z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="networth-body">
+      <h2>Your <em>network</em> is your net worth.</h2>
+      <p>We bring together ambitious college women to learn, grow and support each other—so you can step into your career with <em>confidence</em>.</p>
     </div>
   </section>
 
   <!-- PILLARS -->
   <section class="pillars">
     <div class="pillars-inner">
-      <h2>What you'll walk away with.</h2>
+      <div class="pillars-eyebrow">What you'll find here</div>
+      <h2>Five ways The Debut shows up for you.</h2>
       <div class="pillars-grid">
-        <div class="pillar-card featured">
-          <div class="pillar-number">Community</div>
-          <div class="pillar-title">A circle that stays with you</div>
-          <p class="pillar-body">Not a sorority. Not a club. No interviews to join or dues. A new community of women who you can build friendships with that is open to any college aged woman and one that you keep well beyond graduation.</p>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="15" r="5"/><circle cx="11" cy="20" r="4"/><circle cx="37" cy="20" r="4"/>
+              <path d="M15 34c0-5 4-9 9-9s9 4 9 9"/><path d="M5 32c0-3.4 2.4-6.3 5.6-7.2"/><path d="M43 32c0-3.4-2.4-6.3-5.6-7.2"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Community</div>
+          <p class="pillar-body">Find your people.<br>Build real connections.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-number">Skills</div>
-          <div class="pillar-title">What they don't teach in class</div>
-          <p class="pillar-body">Personal brand, negotiation, owning a room, navigating the early years of a career on your own terms. Practical. Honest. Built for right now.</p>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+              <line x1="24" y1="7" x2="24" y2="41"/><line x1="7" y1="24" x2="41" y2="24"/>
+              <line x1="12.5" y1="12.5" x2="35.5" y2="35.5"/><line x1="35.5" y1="12.5" x2="12.5" y2="35.5"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Skills</div>
+          <p class="pillar-body">Learn what they don't teach in the classroom.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-number">Experiences</div>
-          <div class="pillar-title">Dinners. Events. What comes next.</div>
-          <p class="pillar-body">It starts at the dinner table and grows. Workshops, speaker evenings, larger gatherings. Built for women who want more than a résumé line.</p>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="15" y1="8" x2="15" y2="41"/>
+              <path d="M15 10h20l-5 6.5 5 6.5H15"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Mentorship</div>
+          <p class="pillar-body">Get guidance from women who've been there.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-number">Identity</div>
-          <div class="pillar-title">Your voice, sharpened here</div>
-          <p class="pillar-body">You'll leave with a clearer sense of who you are and how you show up. Not a personal brand. Just you — more settled, more sure, more ready than when you walked in.</p>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+              <path d="M24 8 C24 17 31 24 40 24 C31 24 24 31 24 40 C24 31 17 24 8 24 C17 24 24 17 24 8 Z"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Confidence</div>
+          <p class="pillar-body">Grow your self-belief. Show up as your future self.</p>
         </div>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="24" cy="24" r="15"/><ellipse cx="24" cy="24" rx="6.5" ry="15"/><line x1="9" y1="24" x2="39" y2="24"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Impact</div>
+          <p class="pillar-body">Use your voice. Lift others. Lead forward.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- NETWORK -->
-  <section class="network-section">
-    <div class="network-inner">
-      <div class="network-left">
-        <span class="section-label">The network</span>
-        <h2>The Debut doesn't end<br><em>at graduation.</em></h2>
+  <!-- STEPPING BAND -->
+  <section class="stepping">
+    <div class="eyebrow">Dream it. Plan it. Build it.</div>
+    <blockquote>You're not just joining.<br>You're stepping into <em>something bigger.</em></blockquote>
+  </section>
+
+  <!-- VALUES BAND -->
+  <section class="values">
+    <div class="values-inner">
+      <div class="values-head">
+        <h2>Made for her.<br><span class="underline">Built by us.</span></h2>
       </div>
-      <div class="network-right">
-        <p>Every woman who comes through The Debut — every city, every year — becomes part of a network that compounds over time. It doesn't belong to a school. It belongs to the women in it.</p>
-        <p>She's a founder. She's an editor. She's the person who knows the person. And she remembers you — from before you fully knew yourself.</p>
-        <p>This is the long game. And it starts the moment you walk in.</p>
+      <div class="values-list">
+        <div class="value-item"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Authentic</div>
+        <div class="value-item"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Ambitious</div>
+        <div class="value-item"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Empowered</div>
+        <div class="value-item"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Supportive</div>
+        <div class="value-item"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Fearless</div>
       </div>
     </div>
   </section>
 
   <!-- PULL QUOTE -->
   <section class="pull-quote">
-    <blockquote>
-      "The confidence men walk into every room with —<br>
-      <em>we're building it here, together.</em>"
-    </blockquote>
-    <div class="pull-divider"></div>
+    <blockquote>In the room. For the room.<br><span class="pq-sub">Beyond the room.</span></blockquote>
   </section>
 
   <!-- FORM -->
   <section class="form-section" id="signup">
     <div class="form-inner">
-      <span class="section-label">Join The Debut</span>
+      <div class="form-eyebrow">Join The Debut</div>
       <h2>Be part of something<br>from the beginning.</h2>
-      <p>Launching Summer 2026, with full momentum into Fall. Whether you're a college woman ready to find your people — or a leader ready to give back — there's a seat at this table for you.</p>
+      <p>Whether you're a college woman ready to find your people — or a leader ready to give back — there's a seat at this table for you.</p>
 
       <form id="debut-form">
 
-        <!-- ── ROLE SELECTOR ── -->
         <div class="role-selector">
           <button type="button" class="role-btn active" data-role="member">
-            <span class="role-icon">✦</span>
+            <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
             <span class="role-label">College Member</span>
             <span class="role-sub">I'm a college woman ready to join</span>
           </button>
           <button type="button" class="role-btn" data-role="mentor">
-            <span class="role-icon">✦</span>
+            <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
             <span class="role-label">Speaker & Mentor</span>
             <span class="role-sub">I'm a leader ready to give back</span>
           </button>
@@ -619,7 +666,6 @@
 
         <input type="hidden" id="role" name="role" value="member">
 
-        <!-- ── SHARED FIELDS ── -->
         <div class="form-row">
           <div class="form-field">
             <label for="fname">First name</label>
@@ -639,7 +685,6 @@
           <input type="text" id="city" name="city" placeholder="Your city" required autocomplete="address-level2">
         </div>
 
-        <!-- ── MEMBER FIELDS ── -->
         <div id="member-fields">
           <div class="form-row">
             <div class="form-field">
@@ -659,7 +704,6 @@
           </div>
         </div>
 
-        <!-- ── MENTOR FIELDS ── -->
         <div id="mentor-fields" style="display:none;">
           <div class="form-row">
             <div class="form-field">
@@ -698,6 +742,14 @@
           </div>
         </div>
 
+        <label class="optin" for="optin">
+          <input type="checkbox" id="optin" name="optin" required>
+          <span class="optin-box" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 10L8.5 14.5L16 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="optin-text">Yes — I'd like to receive emails from The Debut about events, opportunities, and community updates. I can unsubscribe at any time, and my information is handled per the <a href="#privacy">Privacy Policy</a>.</span>
+        </label>
+
         <button type="submit" class="btn-submit">I'm in →</button>
         <p class="form-note">Free to join. No spam. Just The Debut, when it's ready for you.</p>
       </form>
@@ -705,29 +757,80 @@
       <div class="form-confirmation" id="confirmation">
         <div class="check-circle">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10L8.5 14.5L16 6" stroke="#F9C8D0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 10L8.5 14.5L16 6" stroke="#8C6AAE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h3 id="confirmation-title">You're in.</h3>
-        <p id="confirmation-body">Welcome to The Debut.<br>We launch this summer — we'll be in touch soon.</p>
+        <p id="confirmation-body">Welcome to The Debut.<br>We'll be in touch soon.</p>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">
-      <span class="the">The</span>
-      <span class="debut">DEBUT</span>
-    </div>
-    <div class="footer-right">
-      <a href="https://instagram.com/jointhedebut" target="_blank" class="footer-ig">@jointhedebut</a>
-      <div class="footer-copy">© 2026 The Debut. All rights reserved.</div>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo" aria-label="The Debut">
+            <span class="the">The</span>
+            <span class="debut">Debut<span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span></span>
+          </span>
+          <p>The community where ambitious women become who they're meant to be. Your first professional network — your lifelong advantage.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/jointhedebut" target="_blank" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="https://tiktok.com/@jointhedebut" target="_blank" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2 1.6 3.6 3.5 3.9v2.5c-1.3.1-2.5-.3-3.5-.9v5.7c0 3.3-2.7 5.8-5.9 5.5-2.7-.3-4.8-2.6-4.6-5.4.2-2.6 2.5-4.6 5.1-4.4v2.6c-.3-.1-.7-.2-1-.1-1.1.1-2 1.1-1.9 2.2.1 1.1 1.1 1.9 2.2 1.8 1.1-.1 1.9-1 1.9-2.1V3h2.7z"/></svg>
+            </a>
+            <a href="https://linkedin.com/company/jointhedebut" target="_blank" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5v9H3.6v-9h2.9zM5 3.7c.9 0 1.6.7 1.6 1.6S5.9 6.9 5 6.9s-1.6-.7-1.6-1.6S4.1 3.7 5 3.7zM20.4 17.5h-2.9v-4.4c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4v4.5h-2.9v-9h2.8v1.2h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5v4.8z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="#signup">Join The Debut</a></li>
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">Dinners &amp; events</a></li>
+            <li><a href="#">Become a mentor</a></li>
+            <li><a href="#">Chapters &amp; cities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Our story</a></li>
+            <li><a href="#">The mission</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Partner with us</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 The Debut. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Settings</a>
+          <a href="#accessibility">Accessibility</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    // ── Role selector ──
     const roleBtns    = document.querySelectorAll('.role-btn');
     const roleInput   = document.getElementById('role');
     const memberFields = document.getElementById('member-fields');
@@ -744,41 +847,26 @@
         if (role === 'member') {
           memberFields.style.display = 'block';
           mentorFields.style.display = 'none';
-          // make member fields required, mentor fields not
-          document.getElementById('school').required = false;
-          document.getElementById('gradyear').required = false;
-          document.getElementById('linkedin').required = false;
         } else {
           memberFields.style.display = 'none';
           mentorFields.style.display = 'block';
-          document.getElementById('school').required = false;
-          document.getElementById('gradyear').required = false;
         }
       });
     });
 
-    // ── Populate graduation years dynamically ──
     (function() {
       const select = document.getElementById('gradyear');
       const currentYear = new Date().getFullYear();
       for (let y = currentYear; y <= currentYear + 10; y++) {
         const opt = document.createElement('option');
-        opt.value = y;
-        opt.textContent = y;
-        select.appendChild(opt);
+        opt.value = y; opt.textContent = y; select.appendChild(opt);
       }
-      select.addEventListener('change', function() {
-        if (this.value) this.classList.add('has-value');
-      });
-      document.getElementById('industry').addEventListener('change', function() {
-        if (this.value) this.classList.add('has-value');
-      });
+      select.addEventListener('change', function() { if (this.value) this.classList.add('has-value'); });
+      document.getElementById('industry').addEventListener('change', function() { if (this.value) this.classList.add('has-value'); });
     })();
 
-    // ── Form submit ──
     const form         = document.getElementById('debut-form');
     const confirmation = document.getElementById('confirmation');
-
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       const role = roleInput.value;
@@ -787,11 +875,10 @@
         confirmBody.innerHTML = "Thank you for joining as a Speaker & Mentor.<br>We'll be in touch soon about how you can contribute.";
       } else {
         confirmTitle.textContent = "You're in.";
-        confirmBody.innerHTML = "Welcome to The Debut.<br>We launch this summer — we'll be in touch soon.";
+        confirmBody.innerHTML = "Welcome to The Debut.<br>We'll be in touch soon.";
       }
       form.style.display = 'none';
       confirmation.style.display = 'block';
-      confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   </script>
 
