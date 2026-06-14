@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Debut — Become who you're meant to be.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── THE DEBUT COLOR PALETTE ── */
+      --debut-cream:  #F8F5F1;
+      --lavender-mist:#E8DDF2;
+      --soft-lilac:   #D6C1E8;
+      --debut-plum:   #8C6AAE;
+      --plum-deep:    #6E4F8E;   /* derived — readable plum on light */
+      --midnight-ink: #171717;
+      --warm-charcoal:#3B3B3B;
+      --rose-dust:    #E8D4D4;
+      --silver-stone: #BDB7B1;
+
+      --serif:  'Playfair Display', Georgia, serif;
+      --script: 'Pinyon Script', cursive;
+      --sans:   'DM Sans', system-ui, sans-serif;
+      --px: 48px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--debut-cream);
+      color: var(--midnight-ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Reusable sparkle ── */
+    .spark {
+      display: inline-block; vertical-align: middle;
+      width: 0.5em; height: 0.5em;
+      color: var(--debut-plum);
+    }
+    .spark svg { width: 100%; height: 100%; display: block; }
+
+    /* ─────────────────────────────────────────
+       LOGO LOCKUP  (nav)
+    ───────────────────────────────────────── */
+    .logo { position: relative; display: inline-block; line-height: 1; padding-top: 8px; text-decoration: none; }
+    .logo .the {
+      font-family: var(--script); font-size: 23px; color: var(--debut-plum);
+      position: absolute; top: -9px; left: 40px; transform: rotate(-4deg); z-index: 2;
+    }
+    .logo .debut {
+      font-family: var(--serif); font-weight: 600; font-size: 27px;
+      color: var(--midnight-ink); letter-spacing: -0.005em; padding-left: 0;
+    }
+    .logo .debut .spark { width: 12px; height: 12px; margin-left: 2px; color: var(--soft-lilac); }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    nav {
+      background: var(--debut-cream);
+      padding: 16px var(--px);
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(23,23,23,0.08);
+    }
+    .nav-right { display: flex; align-items: center; gap: 26px; }
+    .nav-ig {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--warm-charcoal); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-ig:hover { color: var(--debut-plum); }
+    .nav-ig-handle { font-size: 12px; letter-spacing: 0.05em; }
+    .nav-cta {
+      font-size: 11px; font-weight: 600; color: var(--midnight-ink);
+      text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase;
+      background: var(--soft-lilac);
+      padding: 11px 22px; border-radius: 999px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--debut-plum); color: #fff; transform: translateY(-1px); }
+
+    /* ─────────────────────────────────────────
+       HERO  — the giant wordmark
+    ───────────────────────────────────────── */
+    .hero {
+      background: var(--debut-cream);
+      padding: 76px var(--px) 84px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-spark-bg {
+      position: absolute; color: var(--soft-lilac); opacity: 0.55;
+    }
+    .hero-spark-bg.s1 { width: 28px; height: 28px; top: 90px;  left: 12%; }
+    .hero-spark-bg.s2 { width: 18px; height: 18px; top: 210px; right: 14%; }
+    .hero-spark-bg.s3 { width: 40px; height: 40px; bottom: 120px; left: 8%; opacity: 0.4; }
+
+    .hero-logo { position: relative; display: inline-block; margin-bottom: 8px; }
+    .hero-logo .the {
+      font-family: var(--script);
+      font-size: clamp(48px, 9vw, 104px);
+      color: var(--debut-plum);
+      position: absolute; top: -0.20em; left: 2.05em; z-index: 2;
+      transform: rotate(-5deg);
+    }
+    .hero-logo .debut {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(82px, 18vw, 188px);
+      color: var(--midnight-ink); line-height: 0.9;
+      letter-spacing: -0.01em; display: inline-block; position: relative;
+    }
+    .hero-logo .debut .spark {
+      position: absolute; right: -0.34em; top: 0.34em;
+      width: 0.16em; height: 0.16em; color: var(--soft-lilac);
+    }
+    .hero-tagline {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin: 18px 0 40px;
+    }
+    .hero-tagline span.txt {
+      font-size: clamp(12px, 1.6vw, 15px); letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--debut-plum); font-weight: 500;
+    }
+    .hero-tagline .rule { width: clamp(24px, 5vw, 48px); height: 1px; background: var(--debut-plum); opacity: 0.6; }
+
+    .hero-headline {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(28px, 4.2vw, 46px);
+      color: var(--midnight-ink); line-height: 1.22;
+      max-width: 720px; margin: 0 auto 22px; letter-spacing: -0.005em;
+    }
+    .hero-headline em { font-style: italic; color: var(--debut-plum); }
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px); font-weight: 300;
+      color: var(--warm-charcoal); line-height: 1.7;
+      max-width: 440px; margin: 0 auto 36px;
+    }
+    .hero-sub strong { font-weight: 600; color: var(--midnight-ink); }
+    .btn-primary {
+      display: inline-block; background: var(--debut-plum); color: #fff;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
+      text-decoration: none; text-transform: uppercase;
+      padding: 17px 40px; border: none; cursor: pointer; border-radius: 999px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 10px 28px rgba(140,106,174,0.32);
+    }
+    .btn-primary:hover { background: var(--plum-deep); transform: translateY(-2px); box-shadow: 0 16px 34px rgba(140,106,174,0.4); }
+
+    /* ─────────────────────────────────────────
+       CHAPTER BAND  (lavender mist)
+    ───────────────────────────────────────── */
+    .chapter { background: var(--lavender-mist); padding: 56px var(--px); text-align: center; }
+    .chapter h2 {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(22px, 3vw, 34px); color: var(--midnight-ink);
+      line-height: 1.18; max-width: 620px; margin: 0 auto 30px; letter-spacing: -0.01em;
+    }
+    .chapter-chips {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 14px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .chapter-chip {
+      background: var(--debut-cream); color: var(--warm-charcoal);
+      font-size: 13px; letter-spacing: 0.04em; padding: 10px 20px;
+      border-radius: 999px; border: 1px solid rgba(140,106,174,0.25);
+      display: inline-flex; align-items: center; gap: 9px;
+    }
+    .chapter-chip .spark { width: 11px; height: 11px; color: var(--debut-plum); }
+
+    /* ─────────────────────────────────────────
+       NET WORTH BAND  (midnight ink + seal)
+    ───────────────────────────────────────── */
+    .networth { display: grid; grid-template-columns: 360px 1fr; align-items: stretch; }
+    .networth-seal {
+      background: var(--lavender-mist);
+      display: flex; align-items: center; justify-content: center;
+      padding: 64px 32px;
+    }
+    .seal { width: 230px; height: 230px; }
+    .seal text { fill: var(--midnight-ink); }
+    .seal .ring-top   { font-family: var(--sans); font-size: 13.5px; font-weight: 600; letter-spacing: 5.5px; }
+    .seal .ring-bot   { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 3.6px; }
+    .seal .seal-d     { font-family: var(--serif); font-size: 78px; font-weight: 600; }
+    .networth-body {
+      background: var(--midnight-ink); color: var(--debut-cream);
+      padding: 72px var(--px); display: flex; flex-direction: column; justify-content: center;
+    }
+    .networth-body h2 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(30px, 4.4vw, 52px); line-height: 1.1; margin-bottom: 22px; letter-spacing: -0.01em;
+    }
+    .networth-body h2 em { font-style: italic; color: var(--soft-lilac); }
+    .networth-body p {
+      font-size: clamp(15px, 1.9vw, 18px); font-weight: 300;
+      color: rgba(248,245,241,0.78); line-height: 1.75; max-width: 560px;
+    }
+    .networth-body p em { font-style: italic; color: var(--soft-lilac); }
+
+    /* ─────────────────────────────────────────
+       PILLARS
+    ───────────────────────────────────────── */
+    .pillars { background: var(--debut-cream); padding: 80px var(--px) 84px; }
+    .pillars-inner { max-width: 1120px; margin: 0 auto; }
+    .pillars-eyebrow {
+      text-align: center; font-size: 11px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--debut-plum); font-weight: 600; margin-bottom: 12px;
+    }
+    .pillars h2 {
+      font-family: var(--serif); font-weight: 600; text-align: center;
+      font-size: clamp(26px, 3.6vw, 40px); color: var(--midnight-ink);
+      margin-bottom: 52px; letter-spacing: -0.01em;
+    }
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+    }
+    .pillar {
+      padding: 0 22px; text-align: center;
+      border-left: 1px solid rgba(23,23,23,0.1);
+    }
+    .pillar:first-child { border-left: none; }
+    .pillar-icon {
+      width: 44px; height: 44px; margin: 0 auto 18px; color: var(--midnight-ink);
+    }
+    .pillar-icon svg { width: 100%; height: 100%; display: block; }
+    .pillar-title {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--midnight-ink); margin-bottom: 12px;
+    }
+    .pillar-body { font-size: 14px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.7; }
+
+    /* ─────────────────────────────────────────
+       STEPPING BAND  (soft lilac)
+    ───────────────────────────────────────── */
+    .stepping { background: var(--soft-lilac); padding: 84px var(--px); text-align: center; }
+    .stepping .eyebrow {
+      font-family: var(--serif); font-style: italic; font-weight: 400;
+      font-size: clamp(16px, 2vw, 20px); color: var(--plum-deep); margin-bottom: 16px;
+    }
+    .stepping blockquote {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(30px, 5vw, 60px); color: var(--midnight-ink);
+      line-height: 1.08; max-width: 760px; margin: 0 auto; letter-spacing: -0.015em;
+    }
+    .stepping blockquote em { font-style: italic; color: #fff; }
+
+    /* ─────────────────────────────────────────
+       VALUES BAND  (rose dust)
+    ───────────────────────────────────────── */
+    .values { background: var(--rose-dust); padding: 76px var(--px); }
+    .values-inner {
+      max-width: 880px; margin: 0 auto;
+      display: flex; gap: 56px; align-items: center; flex-wrap: wrap; justify-content: center;
+    }
+    .values-head { flex: 1; min-width: 260px; }
+    .values-head h2 {
+      font-family: var(--serif); font-weight: 500; font-style: italic;
+      font-size: clamp(34px, 5vw, 58px); color: var(--midnight-ink);
+      line-height: 1.04; letter-spacing: -0.01em;
+    }
+    .values-head h2 .underline { border-bottom: 2px solid var(--debut-plum); padding-bottom: 2px; }
+    .values-list { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 0; }
+    .value-item {
+      font-family: var(--serif); font-size: clamp(20px, 2.6vw, 26px);
+      font-weight: 500; color: var(--midnight-ink);
+      padding: 14px 0; border-bottom: 1px solid rgba(23,23,23,0.12);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .value-item:last-child { border-bottom: none; }
+    .value-item .spark { width: 14px; height: 14px; color: var(--debut-plum); }
+
+    /* ─────────────────────────────────────────
+       PULL QUOTE  (plum)
+    ───────────────────────────────────────── */
+    .pull-quote { background: var(--debut-plum); padding: 72px var(--px); text-align: center; }
+    .pull-quote blockquote {
+      font-family: var(--serif); font-weight: 500; font-style: italic;
+      font-size: clamp(26px, 4.4vw, 48px); color: #fff;
+      line-height: 1.2; max-width: 720px; margin: 0 auto;
+    }
+    .pull-quote .pq-sub { color: rgba(255,255,255,0.7); }
+
+    /* ─────────────────────────────────────────
+       FORM
+    ───────────────────────────────────────── */
+    .form-section { background: var(--debut-cream); padding: 84px var(--px); }
+    .form-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+    .form-eyebrow {
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--debut-plum); font-weight: 600; margin-bottom: 14px;
+    }
+    .form-inner h2 {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(32px, 4.5vw, 50px); color: var(--midnight-ink);
+      line-height: 1.06; margin-bottom: 14px; letter-spacing: -0.01em;
+    }
+    .form-inner > p {
+      font-size: 15px; font-weight: 300; color: var(--warm-charcoal);
+      line-height: 1.7; margin-bottom: 36px; max-width: 460px; margin-left: auto; margin-right: auto;
+    }
+    #debut-form { text-align: left; }
+    .role-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+    .role-btn {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 16px 18px; background: #fff;
+      border: 1.5px solid rgba(140,106,174,0.25);
+      cursor: pointer; text-align: left; border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .role-btn:hover { border-color: var(--debut-plum); }
+    .role-btn.active { border-color: var(--debut-plum); background: var(--lavender-mist); }
+    .role-icon { width: 14px; height: 14px; color: var(--debut-plum); margin-bottom: 8px; }
+    .role-icon svg { width: 100%; height: 100%; display: block; }
+    .role-label { font-size: 13px; font-weight: 600; color: var(--midnight-ink); display: block; margin-bottom: 3px; }
+    .role-sub { font-size: 11px; font-weight: 300; color: var(--warm-charcoal); display: block; line-height: 1.4; }
+    @media (max-width: 400px) { .role-selector { grid-template-columns: 1fr; } }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .form-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-charcoal); }
+    .form-field input, .form-field select {
+      font-family: var(--sans); font-size: 16px; font-weight: 300;
+      color: var(--midnight-ink); background: #fff;
+      border: 1px solid rgba(140,106,174,0.25); padding: 14px 16px;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none; appearance: none; border-radius: 10px;
+      font-size: max(16px, 1em);
+    }
+    .form-field input:focus, .form-field select:focus { border-color: var(--debut-plum); box-shadow: 0 0 0 3px rgba(140,106,174,0.14); }
+    .form-field input::placeholder { color: rgba(59,59,59,0.4); }
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C6AAE' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center;
+      padding-right: 40px; color: rgba(59,59,59,0.55);
+    }
+    .form-field select.has-value { color: var(--midnight-ink); }
+    .btn-submit {
+      width: 100%; background: var(--debut-plum); color: #fff;
+      font-family: var(--sans); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 18px; border: none; cursor: pointer; margin-top: 8px; border-radius: 999px;
+      transition: background 0.2s, transform 0.15s;
+      min-height: 54px; box-shadow: 0 10px 28px rgba(140,106,174,0.3);
+    }
+    .btn-submit:hover { background: var(--plum-deep); }
+    .btn-submit:active { transform: scale(0.99); }
+    .form-note { font-size: 12px; color: var(--warm-charcoal); text-align: center; margin-top: 14px; }
+    .form-error {
+      margin-top: 14px; padding: 12px 16px; border-radius: 10px;
+      background: var(--rose-dust); border: 1px solid rgba(140,106,174,0.3);
+      color: #8a1f1f; font-size: 13px; font-weight: 400; text-align: center; line-height: 1.5;
+    }
+    .optin {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin: 4px 0 18px; cursor: pointer;
+    }
+    .optin input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .optin-box {
+      flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px;
+      border: 1.5px solid rgba(140,106,174,0.45); border-radius: 6px;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .optin-box svg { width: 14px; height: 14px; opacity: 0; transition: opacity 0.15s; }
+    .optin input:checked + .optin-box { background: var(--debut-plum); border-color: var(--debut-plum); }
+    .optin input:checked + .optin-box svg { opacity: 1; }
+    .optin input:focus-visible + .optin-box { box-shadow: 0 0 0 3px rgba(140,106,174,0.25); }
+    .optin-text { font-size: 12.5px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.55; }
+    .optin-text a { color: var(--debut-plum); text-decoration: underline; text-underline-offset: 2px; }
+    .form-confirmation { display: none; text-align: center; padding: 52px 0; }
+    .check-circle {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--lavender-mist);
+      border: 1.5px solid var(--debut-plum);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+    }
+    .form-confirmation h3 { font-family: var(--serif); font-weight: 600; font-size: 36px; color: var(--midnight-ink); margin-bottom: 10px; }
+    .form-confirmation p { font-size: 15px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.7; }
+
+    /* Textarea (shared) */
+    .form-field textarea {
+      font-family: var(--sans); font-size: max(16px, 1em); font-weight: 300;
+      color: var(--midnight-ink); background: #fff;
+      border: 1px solid rgba(140,106,174,0.25); padding: 14px 16px;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      border-radius: 10px; resize: vertical; min-height: 116px; line-height: 1.6;
+    }
+    .form-field textarea:focus { border-color: var(--debut-plum); box-shadow: 0 0 0 3px rgba(140,106,174,0.14); }
+    .form-field textarea::placeholder { color: rgba(59,59,59,0.4); }
+
+    /* Partner inquiry panel (Partner with us page) */
+    .partner-apply { margin-top: 52px; background: var(--lavender-mist); border-radius: 24px; padding: clamp(28px, 4vw, 48px); }
+    .partner-apply .pa-eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--plum-deep); font-weight: 600; margin-bottom: 12px; }
+    .partner-apply h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.4vw, 38px); color: var(--midnight-ink); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .partner-apply > p.pa-sub { font-size: 15px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.65; margin-bottom: 30px; max-width: 520px; }
+    .partner-apply .role-btn { background: #fff; }
+    .partner-apply .role-btn.active { background: var(--soft-lilac); border-color: var(--debut-plum); }
+    .partner-apply .form-field input, .partner-apply .form-field select, .partner-apply .form-field textarea { background: #fff; }
+    .partner-apply .form-note, .partner-apply .form-error { text-align: left; }
+    .partner-apply .form-note a { color: var(--debut-plum); text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 640px) { .partner-apply { padding: 26px 20px; } }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      background: var(--midnight-ink); color: var(--debut-cream);
+      padding: 64px var(--px) 32px;
+    }
+    .footer-inner { max-width: 1120px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px;
+      padding-bottom: 44px; border-bottom: 1px solid rgba(248,245,241,0.14);
+    }
+    footer .logo { margin-bottom: 18px; }
+    footer .logo .the, footer .logo .debut { color: var(--debut-cream); }
+    footer .logo .the { color: var(--soft-lilac); }
+    footer .logo .debut .spark { color: var(--soft-lilac); }
+    .footer-brand p { font-size: 14px; font-weight: 300; color: rgba(248,245,241,0.6); line-height: 1.7; max-width: 300px; margin-bottom: 22px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(248,245,241,0.22); color: var(--debut-cream);
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .footer-social a:hover { background: var(--soft-lilac); color: var(--midnight-ink); border-color: var(--soft-lilac); }
+    .footer-col h4 {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--soft-lilac); margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 11px; }
+    .footer-col a {
+      font-size: 14px; font-weight: 300; color: rgba(248,245,241,0.72);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+      padding-top: 26px;
+    }
+    .footer-copy { font-size: 12px; color: rgba(248,245,241,0.4); }
+    .footer-legal { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 12px; color: rgba(248,245,241,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: #fff; }
+
+    /* ─────────────────────────────────────────
+       SUBPAGES  (footer-link content)
+    ───────────────────────────────────────── */
+    .subpage { display: none; background: var(--debut-cream); padding: 72px var(--px) 92px; }
+    .subpage.active { display: block; }
+    .subpage-wrap { max-width: 760px; margin: 0 auto; }
+    .subpage--wide .subpage-wrap { max-width: 1040px; }
+    .subpage-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--debut-plum); text-decoration: none; font-weight: 600; margin-bottom: 34px;
+      transition: color 0.2s;
+    }
+    .subpage-back:hover { color: var(--plum-deep); }
+    .subpage-eyebrow {
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--debut-plum); font-weight: 600; margin-bottom: 14px;
+    }
+    .subpage-title {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(38px, 6vw, 66px); color: var(--midnight-ink);
+      line-height: 1.02; letter-spacing: -0.018em; margin-bottom: 20px;
+    }
+    .subpage-lede {
+      font-family: var(--serif); font-weight: 400; font-style: italic;
+      font-size: clamp(18px, 2.4vw, 25px); color: var(--plum-deep);
+      line-height: 1.42; margin-bottom: 44px; max-width: 640px;
+    }
+    .subpage-cta { margin-top: 40px; }
+    .subpage-cta .cookie-saved {
+      margin-left: 16px; font-size: 13px; color: var(--plum-deep); font-weight: 500;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .subpage-cta .cookie-saved.show { opacity: 1; }
+
+    /* Prose */
+    .prose { max-width: 680px; }
+    .prose p { font-size: 16px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.8; margin-bottom: 20px; text-wrap: pretty; }
+    .prose h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(20px, 2.4vw, 25px); color: var(--midnight-ink); margin: 36px 0 14px; }
+    .prose strong { color: var(--midnight-ink); font-weight: 600; }
+    .prose a { color: var(--debut-plum); text-decoration: underline; text-underline-offset: 2px; }
+    .prose a:hover { color: var(--plum-deep); }
+    .prose ul { list-style: none; margin: 0 0 20px; }
+    .prose li {
+      position: relative; padding-left: 26px; margin-bottom: 12px;
+      font-size: 16px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.7;
+    }
+    .prose li::before {
+      content: ''; position: absolute; left: 4px; top: 0.62em;
+      width: 7px; height: 7px; transform: translateY(-50%) rotate(45deg);
+      background: var(--soft-lilac);
+    }
+    .legal-meta { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--silver-stone); margin-bottom: 8px; }
+
+    /* Step list */
+    .steps { display: flex; flex-direction: column; gap: 14px; max-width: 680px; }
+    .step { display: flex; gap: 20px; align-items: flex-start; background: #fff; border: 1px solid rgba(140,106,174,0.18); border-radius: 18px; padding: 24px 26px; }
+    .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--lavender-mist); color: var(--plum-deep); font-family: var(--serif); font-weight: 600; font-size: 19px; display: flex; align-items: center; justify-content: center; }
+    .step h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; color: var(--midnight-ink); margin-bottom: 7px; }
+    .step p { font-size: 14.5px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.65; }
+
+    /* Tile grid */
+    .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .tile { background: #fff; border: 1px solid rgba(140,106,174,0.18); border-radius: 18px; padding: 26px; }
+    .tile h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; color: var(--midnight-ink); margin-bottom: 9px; }
+    .tile p { font-size: 14.5px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.65; }
+    .tile p a { color: var(--debut-plum); text-decoration: underline; text-underline-offset: 2px; }
+    .tile .muted { display: block; margin-top: 10px; font-size: 12px; letter-spacing: 0.04em; color: var(--silver-stone); }
+
+    /* City grid */
+    .city-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 12px; }
+    .city { background: #fff; border: 1px solid rgba(140,106,174,0.18); border-radius: 16px; padding: 20px 22px; }
+    .city .name { font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--midnight-ink); margin-bottom: 7px; }
+    .city .status { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+    .city .status.live { color: var(--plum-deep); }
+    .city .status.soon { color: var(--silver-stone); }
+
+    /* Journal */
+    .journal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .article-tag { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--debut-plum); font-weight: 600; margin: 16px 0 8px; }
+    .article h3 { font-family: var(--serif); font-weight: 600; font-size: 23px; color: var(--midnight-ink); line-height: 1.2; margin-bottom: 8px; }
+    .article p { font-size: 14.5px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.6; }
+    .article-img { aspect-ratio: 3 / 2; border-radius: 16px; }
+
+    /* Placeholder (imagery to be supplied) */
+    .ph {
+      background-color: var(--lavender-mist);
+      background-image: repeating-linear-gradient(45deg, rgba(140,106,174,0.10) 0 11px, transparent 11px 22px);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--plum-deep); font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* FAQ */
+    .faq details { border-bottom: 1px solid rgba(23,23,23,0.12); padding: 20px 0; }
+    .faq summary { font-family: var(--serif); font-weight: 600; font-size: clamp(18px, 2.2vw, 21px); color: var(--midnight-ink); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--debut-plum); font-weight: 300; font-size: 26px; line-height: 1; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { margin-top: 14px; font-size: 15px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.7; max-width: 640px; }
+    .faq details a { color: var(--debut-plum); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Cookie toggles */
+    .cookie-list { margin-top: 8px; }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(23,23,23,0.12); }
+    .toggle-label { font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--midnight-ink); margin-bottom: 4px; }
+    .toggle-sub { font-size: 13.5px; font-weight: 300; color: var(--warm-charcoal); line-height: 1.5; }
+    .switch { position: relative; flex-shrink: 0; width: 48px; height: 28px; cursor: pointer; }
+    .switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .switch .track { position: absolute; inset: 0; border-radius: 999px; background: var(--silver-stone); transition: background 0.2s; }
+    .switch .track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+    .switch input:checked + .track { background: var(--debut-plum); }
+    .switch input:checked + .track::after { transform: translateX(20px); }
+    .switch.is-locked { cursor: not-allowed; opacity: 0.85; }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      :root { --px: 32px; }
+      .networth { grid-template-columns: 1fr; }
+      .networth-seal { padding: 48px 32px; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 36px 0; }
+      .pillar { border-left: none; }
+      .pillar:nth-child(odd) { border-right: 1px solid rgba(23,23,23,0.1); }
+      .pillar:nth-child(5) { grid-column: 1 / -1; border-right: none; max-width: 340px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      :root { --px: 20px; }
+      nav { padding: 14px var(--px); }
+      .nav-ig-handle { display: none; }
+      .logo .the { font-size: 20px; top: -7px; left: 34px; }
+      .logo .debut { font-size: 23px; padding-left: 0; }
+      .hero { padding: 48px var(--px) 60px; }
+      .hero-logo .the { font-size: clamp(44px, 13vw, 64px); }
+      .hero-logo .debut { font-size: clamp(64px, 24vw, 110px); }
+      .hero-tagline { gap: 10px; margin: 12px 0 30px; }
+      .hero-headline { font-size: clamp(24px, 6.4vw, 34px); }
+      .hero-sub { font-size: 15px; margin-bottom: 30px; }
+      .btn-primary { width: 100%; text-align: center; }
+      .chapter { padding: 48px var(--px); }
+      .networth-body { padding: 52px var(--px); }
+      .seal { width: 200px; height: 200px; }
+      .pillars { padding: 56px var(--px); }
+      .pillars h2 { margin-bottom: 36px; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 32px; }
+      .pillar, .pillar:nth-child(odd) { border: none; padding: 0; }
+      .pillar:nth-child(5) { max-width: none; }
+      .stepping { padding: 60px var(--px); }
+      .values { padding: 56px var(--px); }
+      .values-inner { flex-direction: column; gap: 28px; align-items: flex-start; }
+      .pull-quote { padding: 56px var(--px); }
+      .form-section { padding: 56px var(--px); }
+      .form-row { grid-template-columns: 1fr; gap: 0; margin-bottom: 0; }
+      .subpage { padding: 48px var(--px) 64px; }
+      .tiles, .journal-grid { grid-template-columns: 1fr; }
+      .subpage-back { margin-bottom: 24px; }
+      footer { padding: 48px var(--px) 28px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <template id="__bundler_thumbnail" data-bg-color="#F8F5F1">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#F8F5F1"/>
+      <text x="600" y="470" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="600" font-size="320" fill="#171717">D.</text>
+      <path transform="translate(742,300) scale(7)" d="M9 0 L10.3 7.7 L18 9 L10.3 10.3 L9 18 L7.7 10.3 L0 9 L7.7 7.7 Z" fill="#D6C1E8"/>
+    </svg>
+  </template>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top" class="logo" aria-label="The Debut">
+      <span class="the">The</span>
+      <span class="debut">Debut<span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span></span>
+    </a>
+    <div class="nav-right">
+      <a href="https://instagram.com/jointhedebut" target="_blank" class="nav-ig" aria-label="Follow on Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        <span class="nav-ig-handle">@jointhedebut</span>
+      </a>
+      <a href="#signup" class="nav-cta">Join the Debut</a>
+    </div>
+  </nav>
+
+  <main id="home">
+
+  <!-- HERO -->
+  <section class="hero" id="top" style="text-align: center">
+    <span class="spark hero-spark-bg s1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+    <span class="spark hero-spark-bg s2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+    <span class="spark hero-spark-bg s3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+
+    <div class="hero-logo">
+      <span class="the" style="line-height: 0.93">The</span>
+      <span class="debut">Debut<span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span></span>
+    </div>
+
+    <div class="hero-tagline">
+      <span class="rule"></span>
+      <span class="txt">Your people. Your table. Your future.</span>
+      <span class="rule"></span>
+    </div>
+
+    <h1 class="hero-headline">The <em>first</em> professional network for ambitious women — built in college, before you need it.</h1>
+    <p class="hero-sub" style="font-weight: 400; color: rgb(46, 30, 22)">                   No interviews. No applications.                         There's a seat at this table for you.</p>
+    <a href="#signup" class="btn-primary">Join The Debut</a>
+  </section>
+
+  <!-- CHAPTER BAND -->
+  <section class="chapter">
+    <h2>A community built for every chapter of becoming.</h2>
+    <div class="chapter-chips">
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Real connections</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Relevant skills</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Meaningful mentorship</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Confidence that lasts</span>
+      <span class="chapter-chip"><span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>Impact that matters</span>
+    </div>
+  </section>
+
+  <!-- NET WORTH BAND -->
+  <section class="networth">
+    <div class="networth-seal">
+      <svg class="seal" viewBox="0 0 230 230" role="img" aria-label="The Debut — Learn. Connect. Launch.">
+        <defs>
+          <path id="ringTop" d="M 115,115 m -88,0 a 88,88 0 1,1 176,0" />
+          <path id="ringBot" d="M 27,115 a 88,88 0 0,0 176,0" />
+        </defs>
+        <text class="ring-top"><textPath href="#ringTop" startOffset="50%" text-anchor="middle">THE DEBUT</textPath></text>
+        <text class="ring-bot"><textPath href="#ringBot" startOffset="50%" text-anchor="middle">LEARN · CONNECT · LAUNCH</textPath></text>
+        <text class="seal-d" x="115" y="143" text-anchor="middle">D.</text>
+        <g fill="var(--debut-plum)">
+          <path transform="translate(150,82) scale(0.78)" d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="networth-body">
+      <h2>Your <em>network</em> is your net worth.</h2>
+      <p>We bring together ambitious college women to learn, grow and support each other—so you can step into your career with <em>confidence</em>.</p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="pillars-inner">
+      <div class="pillars-eyebrow">What you'll find here</div>
+      <h2>Five ways The Debut shows up for you.</h2>
+      <div class="pillars-grid">
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="15" r="5"/><circle cx="11" cy="20" r="4"/><circle cx="37" cy="20" r="4"/>
+              <path d="M15 34c0-5 4-9 9-9s9 4 9 9"/><path d="M5 32c0-3.4 2.4-6.3 5.6-7.2"/><path d="M43 32c0-3.4-2.4-6.3-5.6-7.2"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Community</div>
+          <p class="pillar-body">Find your people.<br>Build real connections.</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+              <line x1="24" y1="7" x2="24" y2="41"/><line x1="7" y1="24" x2="41" y2="24"/>
+              <line x1="12.5" y1="12.5" x2="35.5" y2="35.5"/><line x1="35.5" y1="12.5" x2="12.5" y2="35.5"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Skills</div>
+          <p class="pillar-body">Learn what they don't teach in the classroom.</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="15" y1="8" x2="15" y2="41"/>
+              <path d="M15 10h20l-5 6.5 5 6.5H15"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Mentorship</div>
+          <p class="pillar-body">Get guidance from women who've been there.</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+              <path d="M24 8 C24 17 31 24 40 24 C31 24 24 31 24 40 C24 31 17 24 8 24 C17 24 24 17 24 8 Z"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Confidence</div>
+          <p class="pillar-body">Grow your self-belief. Show up as your future self.</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="24" cy="24" r="15"/><ellipse cx="24" cy="24" rx="6.5" ry="15"/><line x1="9" y1="24" x2="39" y2="24"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Impact</div>
+          <p class="pillar-body">Use your voice. Lift others. Lead forward.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPPING BAND -->
+  <section class="stepping">
+    <div class="eyebrow">Dream it. Plan it. Build it.</div>
+    <blockquote>You're not just joining.<br>You're stepping into <em>something bigger.</em></blockquote>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="signup">
+    <div class="form-inner">
+      <div class="form-eyebrow">Join The Debut</div>
+      <h2>Be part of something<br>from the beginning.</h2>
+      <p>Whether you're a college woman ready to find your people — or a leader ready to give back — there's a seat at this table for you.</p>
+
+      <form id="debut-form">
+
+        <div class="role-selector">
+          <button type="button" class="role-btn active" data-role="member">
+            <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+            <span class="role-label">College Student</span>
+            <span class="role-sub">I'm a college woman ready to join</span>
+          </button>
+          <button type="button" class="role-btn" data-role="mentor">
+            <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+            <span class="role-label">Speaker & Mentor</span>
+            <span class="role-sub">I'm a leader ready to give back</span>
+          </button>
+        </div>
+
+        <input type="hidden" id="role" name="role" value="member">
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="fname" placeholder="First name" required autocomplete="given-name">
+          </div>
+          <div class="form-field">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname" placeholder="Last name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" inputmode="email">
+        </div>
+        <div class="form-field">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="Your city" required autocomplete="address-level2">
+        </div>
+
+        <div id="member-fields">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="school">School</label>
+              <input type="text" id="school" name="school" placeholder="University or college" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="major">Major</label>
+              <input type="text" id="major" name="major" placeholder="Your major" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="gradyear">Graduation year</label>
+            <select id="gradyear" name="gradyear">
+              <option value="" disabled selected>Class of…</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="mentor-fields" style="display:none;">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Where you work" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" placeholder="Your role" autocomplete="organization-title">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option value="" disabled selected>Select your industry</option>
+              <option>Technology</option>
+              <option>Media & Entertainment</option>
+              <option>Finance & Investing</option>
+              <option>Healthcare & Wellness</option>
+              <option>Consumer & Retail</option>
+              <option>Marketing & Advertising</option>
+              <option>Sports & Culture</option>
+              <option>Entrepreneurship</option>
+              <option>Law & Policy</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="linkedin">LinkedIn URL</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com/in/yourname" inputmode="url">
+          </div>
+          <div class="form-field">
+            <label for="giveback">What would you like to share with The Debut community?</label>
+            <input type="text" id="giveback" name="giveback" placeholder="In your own words…">
+          </div>
+        </div>
+
+        <label class="optin" for="optin">
+          <input type="checkbox" id="optin" name="optin" required>
+          <span class="optin-box" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 10L8.5 14.5L16 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="optin-text">Yes — I'd like to receive emails from The Debut about events, opportunities, and community updates. I can unsubscribe at any time, and my information is handled per the <a href="#privacy">Privacy Policy</a>.</span>
+        </label>
+
+        <button type="submit" class="btn-submit">I'm in →</button>
+        <p class="form-error" id="form-error" hidden></p>
+        <p class="form-note">Free to join. No spam. Just The Debut, when it's ready for you.</p>
+      </form>
+
+      <div class="form-confirmation" id="confirmation">
+        <div class="check-circle">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10L8.5 14.5L16 6" stroke="#8C6AAE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 id="confirmation-title">You're in.</h3>
+        <p id="confirmation-body">Welcome to The Debut.<br>We'll be in touch soon.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       SUBPAGES  (hash-routed content)
+  ═════════════════════════════════════════ -->
+  <div id="subpages">
+
+    <!-- HOW IT WORKS -->
+    <section class="subpage" id="page-how-it-works">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Community</div>
+        <h1 class="subpage-title">How it works</h1>
+        <p class="subpage-lede">From the day you join to the day you walk across the stage — here's how The Debut shows up for you.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3>Claim your seat</h3>
+              <p>Tell us who you are. No interviews, no applications, no gatekeeping. If you're a college woman ready to grow, there's a seat at this table for you.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Find your people</h3>
+              <p>You're placed into your city chapter and a small cohort of women at the same chapter of becoming — so the network feels like yours from day one.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3>Show up</h3>
+              <p>Intimate dinners, hands-on workshops, mentor office hours, and speaker nights with women who've already walked the path you're on.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h3>Rise</h3>
+              <p>Leave with the relationships, skills, and confidence that compound — the quiet advantage that follows you through every job, pivot, and promotion.</p>
+            </div>
+          </div>
+        </div>
+        <div class="subpage-cta">
+          <a href="#signup" class="btn-primary">Claim your seat</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DINNERS & EVENTS -->
+    <section class="subpage" id="page-events">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Community</div>
+        <h1 class="subpage-title">Dinners &amp; events</h1>
+        <p class="subpage-lede">The relationships that change your career rarely start in a webinar. They start at a table.</p>
+        <div class="prose">
+          <p>Everything we host is built to be small enough to feel real. No name tags, no pitch decks, no networking-for-the-sake-of-networking. Just rooms designed so the right women actually meet each other.</p>
+        </div>
+        <div class="tiles">
+          <div class="tile">
+            <h3>The Debut Table</h3>
+            <p>Our signature dinner. One long table, one honest conversation about where you're headed and who can help you get there.</p>
+          </div>
+          <div class="tile">
+            <h3>Workshops</h3>
+            <p>The skills the classroom skips — negotiating an offer, telling your story, reading a cap table, owning a room.</p>
+          </div>
+          <div class="tile">
+            <h3>Speaker Nights</h3>
+            <p>Founders, operators, and creatives share the unedited version of how they actually got here.</p>
+          </div>
+          <div class="tile">
+            <h3>City Mixers</h3>
+            <p>Open-door evenings where chapters collide and your network grows two degrees at a time.</p>
+          </div>
+        </div>
+        <div class="subpage-cta">
+          <a href="#signup" class="btn-primary">Get on the list</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BECOME A MENTOR -->
+    <section class="subpage" id="page-mentor">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Community</div>
+        <h1 class="subpage-title">Become a mentor</h1>
+        <p class="subpage-lede">Someone opened a door for you. The Debut is how you hold it open for the next woman.</p>
+        <div class="prose">
+          <p>Our mentors are operators, founders, and leaders who remember exactly how it felt to be twenty-one and unsure of the next step. You don't need a curriculum or a title — just a willingness to be honest.</p>
+          <h3>The time commitment</h3>
+          <p>A couple of hours a year. That's the whole ask. Do more if you love it, but you never have to.</p>
+          <h3>What it looks like</h3>
+          <ul>
+            <li>Join one Debut Table dinner a year — we handle everything else.</li>
+            <li>Open up an hour or two of office hours, only when your calendar allows.</li>
+            <li>Share one talk, one story, or one introduction that moves someone forward.</li>
+          </ul>
+          <p>Give what you can, when you can. Even a single conversation can reroute a career.</p>
+        </div>
+        <div class="subpage-cta">
+          <a href="#signup" class="btn-primary" id="mentor-cta">Give back as a mentor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTERS & CITIES -->
+    <section class="subpage subpage--wide" id="page-chapters">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Community</div>
+        <h1 class="subpage-title">Chapters &amp; cities</h1>
+        <p class="subpage-lede">We're opening city by city, intentionally — so every chapter feels full from the first dinner.</p>
+        <div class="city-grid">
+          <div class="city"><div class="name">San Francisco</div><div class="status live">Founding · 2026</div></div>
+          <div class="city"><div class="name">New York</div><div class="status live">Coming soon</div></div>
+          <div class="city"><div class="name">Los Angeles</div><div class="status soon">2027</div></div>
+          <div class="city"><div class="name">Boston</div><div class="status soon">2027</div></div>
+          <div class="city"><div class="name">Washington, D.C.</div><div class="status soon">2027</div></div>
+          <div class="city"><div class="name">Chicago</div><div class="status soon">2027</div></div>
+          <div class="city"><div class="name">Atlanta</div><div class="status soon">2027</div></div>
+          <div class="city"><div class="name">Austin</div><div class="status soon">2027</div></div>
+          <div class="city"><div class="name">Miami</div><div class="status soon">2027</div></div>
+        </div>
+        <div class="prose" style="margin-top:32px;">
+          <p>Don't see your city? Add yourself to the waitlist when you join — chapters open where demand is loudest, and you help decide where we go next.</p>
+        </div>
+        <div class="subpage-cta">
+          <a href="#signup" class="btn-primary">Request my city</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="subpage" id="page-story">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Company</div>
+        <h1 class="subpage-title">Our story</h1>
+        <p class="subpage-lede">The Debut began with a simple, uncomfortable observation: ambition is evenly distributed, but access is not.</p>
+        <div class="prose">
+          <p>Here's the quiet contradiction of campus life: the places built to help you belong often start by asking you to prove you deserve to. Want to join the club in your field? Apply, then interview. Hoping to find your sisterhood? Rush, then wait to be chosen.</p>
+          <p>We love what those communities give women — real friendship, real belonging. But the front door shouldn't be a gate. For every woman who makes it through, there's another, just as ambitious, left on the other side simply because there weren't enough seats.</p>
+          <p>The women we knew were brilliant and driven, yet graduating into rooms where they didn't know a single person — while others walked in already holding a name, a referral, a head start. The gap was never talent. It was the network nobody handed them.</p>
+          <p>So we built the thing we wished we'd had at twenty: a community where any college woman could find her people, learn what the classroom skips, and sit across the table from someone a few chapters ahead of her. No application. No interview. No rush. You're already in.</p>
+          <p>The Debut is named for that moment — the step into the room you've been working toward. We're here to make sure that when you arrive, you're not arriving alone.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE MISSION -->
+    <section class="subpage" id="page-mission">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Company</div>
+        <h1 class="subpage-title">The mission</h1>
+        <p class="subpage-lede">To give every ambitious woman the network she was never handed — before she needs it.</p>
+        <div class="prose">
+          <p>Careers are built on relationships that compound for decades. The earlier those relationships start, the further they carry you. Yet the most consequential network — your first one — is usually left entirely to luck and last name.</p>
+          <p>We exist to change that. The Debut turns the first professional network into a lifelong advantage, starting in college and following you for the rest of your career.</p>
+          <h3>What we believe</h3>
+          <ul>
+            <li>Access should be earned by ambition, not left to chance.</li>
+            <li>Confidence is a skill, and it's teachable.</li>
+            <li>Women rise faster when they rise together.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREERS -->
+    <section class="subpage" id="page-careers">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Company</div>
+        <h1 class="subpage-title">Careers</h1>
+        <p class="subpage-lede">We're early, small, and building something that will outlast us. If that excites you, read on.</p>
+        <div class="prose">
+          <p>We hire people who are unreasonably devoted to the women we serve. We don't have a long roster of open roles — we have a high bar and a short list. When something opens, it lives here.</p>
+        </div>
+        <div class="tiles" style="grid-template-columns: 1fr;">
+          <div class="tile">
+            <h3>Campus Lead — Bay Area</h3>
+            <p>Launch our founding chapter at Santa Clara University and the University of San Francisco. Recruit the first members, host the first Debut Table dinners, and turn a campus into a movement. <span class="muted">Bay Area · Part-time, with room to grow</span></p>
+          </div>
+        </div>
+        <div class="prose" style="margin-top:28px;">
+          <p>Don't see your role? The best people rarely wait for a posting. Tell us why you belong here at <a href="/cdn-cgi/l/email-protection#8ae9ebf8efeff8f9cae0e5e3e4fee2efeeefe8fffea4e9e5e7"><span class="__cf_email__" data-cfemail="8be8eaf9eeeef9f8cbe1e4e2e5ffe3eeefeee9feffa5e8e4e6">[email&#160;protected]</span></a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section class="subpage" id="page-press">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Company</div>
+        <h1 class="subpage-title">Press</h1>
+        <p class="subpage-lede">For interviews, assets, and story ideas, we'd love to talk.</p>
+        <div class="prose">
+          <p>The Debut is a community giving ambitious college women the professional network they were never handed — built city by city, table by table. For founder interviews, member stories, or partnership news, reach our team directly.</p>
+          <h3>Media contact</h3>
+          <ul>
+            <li><a href="/cdn-cgi/l/email-protection#e29290879191a2888d8b8c968a878687809796cc818d8f"><span class="__cf_email__" data-cfemail="f68684938585b69c999f98829e939293948382d895999b">[email&#160;protected]</span></a></li>
+          </ul>
+          <h3>Brand assets</h3>
+          <p>Logos, wordmarks, and approved imagery are available on request. Please use the lavender wordmark on cream and keep clear space around the lockup.</p>
+        </div>
+        <div class="ph" style="aspect-ratio:16/6; border-radius:16px; margin-top:8px;">Press kit — download bundle</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="subpage" id="page-contact">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Company</div>
+        <h1 class="subpage-title">Contact</h1>
+        <p class="subpage-lede">However you found us — we're glad you did. Here's the fastest way to reach the right person.</p>
+        <div class="tiles">
+          <div class="tile">
+            <h3>General</h3>
+            <p>Questions about joining or just want to say hello.<br><a href="/cdn-cgi/l/email-protection#a9c1ccc5c5c6e9c3c6c0c7ddc1cccdcccbdcdd87cac6c4"><span class="__cf_email__" data-cfemail="97fff2fbfbf8d7fdf8fef9e3fff2f3f2f5e2e3b9f4f8fa">[email&#160;protected]</span></a></p>
+          </div>
+          <div class="tile">
+            <h3>Mentors &amp; speakers</h3>
+            <p>Ready to give back to the community.<br><a href="/cdn-cgi/l/email-protection#28454d465c475a5b68424741465c404d4c4d4a5d5c064b4745"><span class="__cf_email__" data-cfemail="6a070f041e0518192a000503041e020f0e0f081f1e44090507">[email&#160;protected]</span></a></p>
+          </div>
+          <div class="tile">
+            <h3>Partnerships</h3>
+            <p>Brands, universities, and sponsors.<br><a href="/cdn-cgi/l/email-protection#a9d9c8dbddc7ccdbdae9c3c6c0c7ddc1cccdcccbdcdd87cac6c4"><span class="__cf_email__" data-cfemail="9feffeedebf1faedecdff5f0f6f1ebf7fafbfafdeaebb1fcf0f2">[email&#160;protected]</span></a></p>
+          </div>
+          <div class="tile">
+            <h3>Press</h3>
+            <p>Media and interview requests.<br><a href="/cdn-cgi/l/email-protection#b6c6c4d3c5c5f6dcd9dfd8c2ded3d2d3d4c3c298d5d9db"><span class="__cf_email__" data-cfemail="4a3a382f39390a202523243e222f2e2f283f3e64292527">[email&#160;protected]</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="subpage" id="page-faq">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Resources</div>
+        <h1 class="subpage-title">FAQ</h1>
+        <p class="subpage-lede">The questions we hear most, answered plainly.</p>
+        <div class="faq">
+          <details>
+            <summary>Who is The Debut for?</summary>
+            <p>Ambitious college women who want a real network, relevant skills, and mentorship before they graduate — plus the leaders and operators who want to give back to them.</p>
+          </details>
+          <details>
+            <summary>Is there an application or interview?</summary>
+            <p>No. There are no interviews and no applications. If you're a college woman ready to grow, there's a seat at this table for you.</p>
+          </details>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>It's free to join. We'll always be transparent about anything that ever isn't, and you'll never be surprised by a charge.</p>
+          </details>
+          <details>
+            <summary>What if my city isn't open yet?</summary>
+            <p>Join anyway and add yourself to the waitlist. We open chapters where demand is strongest, so your sign-up helps decide where we launch next.</p>
+          </details>
+          <details>
+            <summary>I've already graduated — can I still join?</summary>
+            <p>The community is built for college women, but recent grads and experienced leaders are exactly who we want as mentors and speakers. Join as a Speaker &amp; Mentor to stay close to the community.</p>
+          </details>
+          <details>
+            <summary>How much time does it take?</summary>
+            <p>As much or as little as you want. Come to one dinner a semester or show up every week — the network is there when you need it.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER WITH US -->
+    <section class="subpage" id="page-partner">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Resources</div>
+        <h1 class="subpage-title">Partner with us</h1>
+        <p class="subpage-lede">Reach the most ambitious women of the next generation — at the exact moment their loyalty is formed.</p>
+        <div class="prose">
+          <p>The Debut convenes college women who are choosing the brands, tools, and employers they'll champion for decades. Partnering with us means showing up authentically in rooms that matter, not buying another impression.</p>
+        </div>
+        <div class="tiles">
+          <div class="tile">
+            <h3>Brands</h3>
+            <p>Host a dinner, sponsor a workshop, or put your product in the hands of women who set culture.</p>
+          </div>
+          <div class="tile">
+            <h3>Universities</h3>
+            <p>Bring The Debut to your campus and give your students a network that outlasts graduation.</p>
+          </div>
+          <div class="tile">
+            <h3>Employers</h3>
+            <p>Meet early-career talent through mentorship and speaker nights — relationships, not résumés.</p>
+          </div>
+          <div class="tile">
+            <h3>Foundations</h3>
+            <p>Fund access. Help us open chapters in the cities and communities that need them most.</p>
+          </div>
+        </div>
+
+        <div class="partner-apply" id="partner-apply">
+          <div class="pa-eyebrow">Start the conversation</div>
+          <h2>Tell us about your organization</h2>
+          <p class="pa-sub">Share a few details and the partnerships team will reach out within two business days.</p>
+
+          <form id="partner-form">
+            <div class="role-selector">
+              <button type="button" class="role-btn active" data-ptype="brand">
+                <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+                <span class="role-label">Brand</span>
+                <span class="role-sub">Host, sponsor, or sample</span>
+              </button>
+              <button type="button" class="role-btn" data-ptype="university">
+                <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+                <span class="role-label">University</span>
+                <span class="role-sub">Bring The Debut to campus</span>
+              </button>
+              <button type="button" class="role-btn" data-ptype="employer">
+                <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+                <span class="role-label">Employer</span>
+                <span class="role-sub">Meet early-career talent</span>
+              </button>
+              <button type="button" class="role-btn" data-ptype="foundation">
+                <span class="role-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span>
+                <span class="role-label">Foundation</span>
+                <span class="role-sub">Fund access &amp; chapters</span>
+              </button>
+            </div>
+
+            <input type="hidden" id="ptype" name="ptype" value="brand">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p_fname">First name</label>
+                <input type="text" id="p_fname" name="p_fname" placeholder="First name" required autocomplete="given-name">
+              </div>
+              <div class="form-field">
+                <label for="p_lname">Last name</label>
+                <input type="text" id="p_lname" name="p_lname" placeholder="Last name" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="p_email">Work email</label>
+              <input type="email" id="p_email" name="p_email" placeholder="you@organization.com" required autocomplete="email" inputmode="email">
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p_org">Organization</label>
+                <input type="text" id="p_org" name="p_org" placeholder="Company, school, or fund" required autocomplete="organization">
+              </div>
+              <div class="form-field">
+                <label for="p_role">Your role</label>
+                <input type="text" id="p_role" name="p_role" placeholder="Your title" autocomplete="organization-title">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="p_website">Website</label>
+              <input type="url" id="p_website" name="p_website" placeholder="yourorganization.com" inputmode="url">
+            </div>
+            <div class="form-field">
+              <label for="p_interest">What are you interested in?</label>
+              <select id="p_interest" name="p_interest">
+                <option value="" disabled selected>Choose one…</option>
+                <option>Hosting a dinner</option>
+                <option>Sponsoring a workshop</option>
+                <option>Product sampling</option>
+                <option>Bringing The Debut to campus</option>
+                <option>Meeting early-career talent</option>
+                <option>Funding access &amp; chapters</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="p_message">Tell us more</label>
+              <textarea id="p_message" name="p_message" placeholder="What do you have in mind?"></textarea>
+            </div>
+
+            <label class="optin" for="p_optin">
+              <input type="checkbox" id="p_optin" name="p_optin" required>
+              <span class="optin-box" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none"><path d="M4 10L8.5 14.5L16 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="optin-text">I agree to be contacted by The Debut about partnership opportunities, per the <a href="#privacy">Privacy Policy</a>.</span>
+            </label>
+
+            <button type="submit" class="btn-submit">Start a conversation →</button>
+            <p class="form-error" id="partner-error" hidden></p>
+            <p class="form-note">Prefer email? Reach us at <a href="/cdn-cgi/l/email-protection#89f9e8fbfde7ecfbfac9e3e6e0e7fde1ecedecebfcfda7eae6e4"><span class="__cf_email__" data-cfemail="54243526203a312627143e3b3d3a203c3130313621207a373b39">[email&#160;protected]</span></a>.</p>
+          </form>
+
+          <div class="form-confirmation" id="partner-confirmation">
+            <div class="check-circle">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10L8.5 14.5L16 6" stroke="#8C6AAE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Thank you.</h3>
+            <p>Your note is with our partnerships team.<br>We'll be in touch within two business days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="subpage" id="page-support">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Resources</div>
+        <h1 class="subpage-title">Support</h1>
+        <p class="subpage-lede">Stuck on something? We're a small team and we answer fast.</p>
+        <div class="prose">
+          <h3>Account &amp; sign-up</h3>
+          <ul>
+            <li>Didn't get a confirmation email? Check spam, then write us — we'll sort it.</li>
+            <li>Need to update your school, city, or email? Reply to any Debut email and we'll fix it.</li>
+          </ul>
+          <h3>Events</h3>
+          <ul>
+            <li>Can't make a dinner you RSVP'd to? Let us know so we can offer your seat to someone on the waitlist.</li>
+          </ul>
+          <h3>Still need a human?</h3>
+          <p>Email <a href="/cdn-cgi/l/email-protection#7a090f0a0a15080e3a101513140e121f1e1f180f0e54191517"><span class="__cf_email__" data-cfemail="dba8aeababb4a9af9bb1b4b2b5afb3bebfbeb9aeaff5b8b4b6">[email&#160;protected]</span></a> and we'll get back to you within one business day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY POLICY -->
+    <section class="subpage" id="page-privacy">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Legal</div>
+        <h1 class="subpage-title">Privacy Policy</h1>
+        <p class="subpage-lede">Your trust is the whole business. Here's exactly how we handle your information.</p>
+        <div class="prose">
+          <p class="legal-meta">Last updated: June 2026</p>
+          <h3>What we collect</h3>
+          <p>When you join, we collect the details you give us — your name, email, city, and (depending on your role) your school and graduation year or your company, title, and industry. We also collect basic, non-identifying analytics about how the site is used.</p>
+          <h3>How we use it</h3>
+          <ul>
+            <li>To place you in the right chapter and cohort.</li>
+            <li>To invite you to dinners, workshops, and events relevant to you.</li>
+            <li>To send community updates you've opted in to receive.</li>
+          </ul>
+          <h3>What we never do</h3>
+          <p>We do not sell your personal information. We don't share your details with partners or sponsors without your explicit, opt-in consent.</p>
+          <h3>Your choices</h3>
+          <p>You can unsubscribe from emails at any time using the link in any message, and you can request that we update or delete your information by emailing <a href="/cdn-cgi/l/email-protection#c4b4b6adb2a5a7bd84aeabadaab0aca1a0a1a6b1b0eaa7aba9"><span class="__cf_email__" data-cfemail="c9b9bba0bfa8aab089a3a6a0a7bda1acadacabbcbde7aaa6a4">[email&#160;protected]</span></a>.</p>
+          <h3>Data retention</h3>
+          <p>We keep your information for as long as you're part of the community. When you ask us to delete it, we do — promptly and completely.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERMS OF SERVICE -->
+    <section class="subpage" id="page-terms">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Legal</div>
+        <h1 class="subpage-title">Terms of Service</h1>
+        <p class="subpage-lede">The simple agreement that keeps our community safe and welcoming.</p>
+        <div class="prose">
+          <p class="legal-meta">Last updated: June 2026</p>
+          <h3>Membership</h3>
+          <p>The Debut is offered to college women and to the mentors and partners who support them. By joining, you confirm the information you provide is accurate and that you'll keep it current.</p>
+          <h3>Community standards</h3>
+          <ul>
+            <li>Treat every member with respect. Harassment, discrimination, and harm have no place here.</li>
+            <li>What's shared in confidence stays in confidence.</li>
+            <li>Don't use the community to spam, recruit aggressively, or sell without our agreement.</li>
+          </ul>
+          <p>We may remove anyone who undermines the safety or spirit of the community.</p>
+          <h3>Your content</h3>
+          <p>Anything you share remains yours. By posting in community spaces, you give us permission to display it within those spaces.</p>
+          <h3>Changes</h3>
+          <p>We may update these terms as The Debut grows. If we make material changes, we'll let you know. Questions? Reach us at <a href="/cdn-cgi/l/email-protection#2f474a4343406f454046415b474a4b4a4d5a5b014c4042"><span class="__cf_email__" data-cfemail="a4ccc1c8c8cbe4cecbcdcad0ccc1c0c1c6d1d08ac7cbc9">[email&#160;protected]</span></a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COOKIE SETTINGS -->
+    <section class="subpage" id="page-cookies">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Legal</div>
+        <h1 class="subpage-title">Cookie Settings</h1>
+        <p class="subpage-lede">You're in control. Choose what we're allowed to remember.</p>
+        <div class="prose">
+          <p>Cookies help the site work and help us understand what's useful. Essential cookies are always on; everything else is your call.</p>
+        </div>
+        <div class="cookie-list">
+          <div class="toggle-row">
+            <div>
+              <div class="toggle-label">Essential</div>
+              <div class="toggle-sub">Required for the site to function. Always active.</div>
+            </div>
+            <label class="switch is-locked"><input type="checkbox" checked disabled><span class="track"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div>
+              <div class="toggle-label">Analytics</div>
+              <div class="toggle-sub">Anonymous usage data that helps us improve The Debut.</div>
+            </div>
+            <label class="switch"><input type="checkbox" data-cookie="analytics" checked><span class="track"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div>
+              <div class="toggle-label">Marketing</div>
+              <div class="toggle-sub">Lets us measure which messages bring the right women in.</div>
+            </div>
+            <label class="switch"><input type="checkbox" data-cookie="marketing"><span class="track"></span></label>
+          </div>
+        </div>
+        <div class="subpage-cta" style="text-align:left;">
+          <button type="button" class="btn-primary" id="cookie-save">Save preferences</button>
+          <span class="cookie-saved" id="cookie-saved">Saved ✓</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCESSIBILITY -->
+    <section class="subpage" id="page-accessibility">
+      <div class="subpage-wrap">
+        <a href="#top" class="subpage-back">← Back to home</a>
+        <div class="subpage-eyebrow">Legal</div>
+        <h1 class="subpage-title">Accessibility</h1>
+        <p class="subpage-lede">A community for every woman has to be a community everyone can reach.</p>
+        <div class="prose">
+          <p>We're committed to making The Debut usable for everyone, and we aim to meet the WCAG 2.1 AA standard across our digital experiences.</p>
+          <h3>What we do</h3>
+          <ul>
+            <li>Maintain strong color contrast and readable type throughout.</li>
+            <li>Support full keyboard navigation and clear focus states.</li>
+            <li>Write descriptive labels and alt text for meaningful imagery.</li>
+            <li>Choose accessible venues for our in-person dinners and events.</li>
+          </ul>
+          <h3>Tell us where we fall short</h3>
+          <p>Accessibility is ongoing work, and we want to hear when we miss. Email <a href="/cdn-cgi/l/email-protection#64050707011717240e0b0d0a100c0100010611104a070b09"><span class="__cf_email__" data-cfemail="08696b6b6d7b7b48626761667c606d6c6d6a7d7c266b6765">[email&#160;protected]</span></a> and we'll respond quickly and make it right.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo" aria-label="The Debut">
+            <span class="the">The</span>
+            <span class="debut">Debut<span class="spark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.7 10.3 L24 12 L13.7 13.7 L12 24 L10.3 13.7 L0 12 L10.3 10.3 Z" fill="currentColor"/></svg></span></span>
+          </span>
+          <p>The first professional network for ambitious women — built in college, before you need it. No interviews, no applications: there's a seat at this table for you.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/jointhedebut" target="_blank" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="https://tiktok.com/@jointhedebut" target="_blank" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2 1.6 3.6 3.5 3.9v2.5c-1.3.1-2.5-.3-3.5-.9v5.7c0 3.3-2.7 5.8-5.9 5.5-2.7-.3-4.8-2.6-4.6-5.4.2-2.6 2.5-4.6 5.1-4.4v2.6c-.3-.1-.7-.2-1-.1-1.1.1-2 1.1-1.9 2.2.1 1.1 1.1 1.9 2.2 1.8 1.1-.1 1.9-1 1.9-2.1V3h2.7z"/></svg>
+            </a>
+            <a href="https://linkedin.com/company/jointhedebut" target="_blank" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5v9H3.6v-9h2.9zM5 3.7c.9 0 1.6.7 1.6 1.6S5.9 6.9 5 6.9s-1.6-.7-1.6-1.6S4.1 3.7 5 3.7zM20.4 17.5h-2.9v-4.4c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4v4.5h-2.9v-9h2.8v1.2h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5v4.8z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="#signup">Join The Debut</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#events">Dinners &amp; events</a></li>
+            <li><a href="#mentor">Become a mentor</a></li>
+            <li><a href="#chapters">Chapters &amp; cities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#story">Our story</a></li>
+            <li><a href="#mission">The mission</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#press">Press</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#partner">Partner with us</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 The Debut. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#cookies">Cookie Settings</a>
+          <a href="#accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    /* ════════════════════════════════════════════════════════
+       SUPABASE  —  paste your two project values below.
+       Find them in Supabase → Project Settings → API:
+         • Project URL        → SUPABASE_URL
+         • Project API keys → anon  public  → SUPABASE_ANON_KEY
+       The anon key is meant to live in front-end code; the
+       Row-Level Security policy (see setup SQL) limits it to
+       INSERT only, so the public can submit but never read.
+    ════════════════════════════════════════════════════════ */
+    const SUPABASE_URL      = 'https://lqdntlmzuhjclownkxcb.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_D2RvX6uL2-hr_Wx6s11Hgg_5OIje8iY';
+    const supabaseReady = window.supabase && !SUPABASE_URL.includes('YOUR-PROJECT-REF');
+    const db = supabaseReady ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+    const roleBtns    = document.querySelectorAll('#debut-form .role-btn');
+    const roleInput   = document.getElementById('role');
+    const memberFields = document.getElementById('member-fields');
+    const mentorFields = document.getElementById('mentor-fields');
+    const confirmTitle = document.getElementById('confirmation-title');
+    const confirmBody  = document.getElementById('confirmation-body');
+
+    roleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        roleBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const role = this.dataset.role;
+        roleInput.value = role;
+        if (role === 'member') {
+          memberFields.style.display = 'block';
+          mentorFields.style.display = 'none';
+        } else {
+          memberFields.style.display = 'none';
+          mentorFields.style.display = 'block';
+        }
+      });
+    });
+
+    (function() {
+      const select = document.getElementById('gradyear');
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear; y <= currentYear + 10; y++) {
+        const opt = document.createElement('option');
+        opt.value = y; opt.textContent = y; select.appendChild(opt);
+      }
+      select.addEventListener('change', function() { if (this.value) this.classList.add('has-value'); });
+      document.getElementById('industry').addEventListener('change', function() { if (this.value) this.classList.add('has-value'); });
+    })();
+
+    const form         = document.getElementById('debut-form');
+    const confirmation = document.getElementById('confirmation');
+    const formError    = document.getElementById('form-error');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const role = roleInput.value;
+      const fd = new FormData(form);
+      const payload = {
+        role:       role,
+        first_name: fd.get('fname'),
+        last_name:  fd.get('lname'),
+        email:      fd.get('email'),
+        city:       fd.get('city'),
+        school:     fd.get('school')   || null,
+        major:      fd.get('major')    || null,
+        grad_year:  fd.get('gradyear') ? Number(fd.get('gradyear')) : null,
+        company:    fd.get('company')  || null,
+        title:      fd.get('title')    || null,
+        industry:   fd.get('industry') || null,
+        linkedin:   fd.get('linkedin') || null,
+        giveback:   fd.get('giveback') || null,
+        optin:      fd.get('optin') === 'on'
+      };
+
+      const submitBtn = form.querySelector('.btn-submit');
+      if (formError) formError.hidden = true;
+
+      if (db) {
+        const label = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Saving…';
+        const { error } = await db.from('signups').insert(payload);
+        submitBtn.disabled = false;
+        submitBtn.textContent = label;
+        if (error) {
+          console.error('Supabase insert failed:', error);
+          if (formError) {
+            formError.textContent = 'Something went wrong saving your spot. Please try again — or email hello@jointhedebut.com.';
+            formError.hidden = false;
+          }
+          return;
+        }
+      } else {
+        console.warn('Supabase not configured — running in demo mode, no data saved.');
+      }
+
+      if (role === 'mentor') {
+        confirmTitle.textContent = 'Welcome to The Debut.';
+        confirmBody.innerHTML = "Thank you for joining as a Speaker & Mentor.<br>We'll be in touch soon about how you can contribute.";
+      } else {
+        confirmTitle.textContent = "You're in.";
+        confirmBody.innerHTML = "Welcome to The Debut.<br>We'll be in touch soon.";
+      }
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+    });
+
+    /* ── Partner inquiry form → Supabase (partner_inquiries) ── */
+    (function() {
+      const pForm = document.getElementById('partner-form');
+      if (!pForm) return;
+      const pBtns = pForm.querySelectorAll('.role-btn');
+      const pType = document.getElementById('ptype');
+      const pInterest = document.getElementById('p_interest');
+      const pConfirm = document.getElementById('partner-confirmation');
+      const pError = document.getElementById('partner-error');
+
+      pBtns.forEach(btn => btn.addEventListener('click', function() {
+        pBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        pType.value = this.dataset.ptype;
+      }));
+      if (pInterest) pInterest.addEventListener('change', function() { if (this.value) this.classList.add('has-value'); });
+
+      pForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const fd = new FormData(pForm);
+        const payload = {
+          partner_type: pType.value,
+          first_name:   fd.get('p_fname'),
+          last_name:    fd.get('p_lname'),
+          email:        fd.get('p_email'),
+          organization: fd.get('p_org'),
+          role:         fd.get('p_role')     || null,
+          website:      fd.get('p_website')  || null,
+          interest:     fd.get('p_interest') || null,
+          message:      fd.get('p_message')  || null,
+          consent:      fd.get('p_optin') === 'on'
+        };
+        const submitBtn = pForm.querySelector('.btn-submit');
+        if (pError) pError.hidden = true;
+
+        if (db) {
+          const label = submitBtn.textContent;
+          submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+          const { error } = await db.from('partner_inquiries').insert(payload);
+          submitBtn.disabled = false; submitBtn.textContent = label;
+          if (error) {
+            console.error('Supabase insert failed:', error);
+            if (pError) { pError.textContent = 'Something went wrong sending your note. Please try again — or email partners@jointhedebut.com.'; pError.hidden = false; }
+            return;
+          }
+        } else {
+          console.warn('Supabase not configured — running in demo mode, no data saved.');
+        }
+        pForm.style.display = 'none';
+        pConfirm.style.display = 'block';
+      });
+    })();
+
+    /* ── Hash router for footer content pages ── */
+    (function() {
+      const home = document.getElementById('home');
+      const subpages = Array.from(document.querySelectorAll('.subpage'));
+      const routes = {
+        'how-it-works': 'page-how-it-works',
+        'events': 'page-events',
+        'mentor': 'page-mentor',
+        'chapters': 'page-chapters',
+        'story': 'page-story',
+        'mission': 'page-mission',
+        'careers': 'page-careers',
+        'press': 'page-press',
+        'contact': 'page-contact',
+        'faq': 'page-faq',
+        'partner': 'page-partner',
+        'support': 'page-support',
+        'privacy': 'page-privacy',
+        'terms': 'page-terms',
+        'cookies': 'page-cookies',
+        'accessibility': 'page-accessibility'
+      };
+
+      function route() {
+        const hash = (location.hash || '').replace('#', '');
+        const pageId = routes[hash];
+        if (pageId) {
+          home.style.display = 'none';
+          subpages.forEach(s => s.classList.toggle('active', s.id === pageId));
+          window.scrollTo(0, 0);
+        } else {
+          subpages.forEach(s => s.classList.remove('active'));
+          home.style.display = '';
+          // let in-page anchors (e.g. #signup) scroll naturally
+          if (hash && hash !== 'top') {
+            const el = document.getElementById(hash);
+            if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'auto', block: 'start' }));
+          } else {
+            window.scrollTo(0, 0);
+          }
+        }
+      }
+      window.addEventListener('hashchange', route);
+      route();
+
+      // Mentor CTA: jump to the form and preselect the mentor role
+      const mentorCta = document.getElementById('mentor-cta');
+      if (mentorCta) {
+        mentorCta.addEventListener('click', function() {
+          const mentorBtn = document.querySelector('.role-btn[data-role="mentor"]');
+          if (mentorBtn) mentorBtn.click();
+        });
+      }
+
+      // Cookie preferences (cosmetic persistence)
+      const cookieSave = document.getElementById('cookie-save');
+      if (cookieSave) {
+        try {
+          const saved = JSON.parse(localStorage.getItem('debut-cookies') || '{}');
+          document.querySelectorAll('[data-cookie]').forEach(cb => {
+            if (cb.dataset.cookie in saved) cb.checked = saved[cb.dataset.cookie];
+          });
+        } catch (e) {}
+        cookieSave.addEventListener('click', function() {
+          const prefs = {};
+          document.querySelectorAll('[data-cookie]').forEach(cb => { prefs[cb.dataset.cookie] = cb.checked; });
+          try { localStorage.setItem('debut-cookies', JSON.stringify(prefs)); } catch (e) {}
+          const note = document.getElementById('cookie-saved');
+          if (note) { note.classList.add('show'); setTimeout(() => note.classList.remove('show'), 2200); }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
